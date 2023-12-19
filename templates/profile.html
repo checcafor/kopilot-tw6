@@ -47,33 +47,90 @@
 
     <div class="container-profile">
         <div class="forms-container-profile">
-            <div class="editprofile">    <!-- AGGIUSTARE -->
-                <form action="" class="profile-up-form">
+            <div class="editprofile">
+                <form action="/profile" class="profile-up-form" novalidate method="POST">
+                  {{ form.hidden_tag()}}
                     <h2 class="title">Edit Profile</h2>
                     <div class="input-field">
                       <i class="ri-user-fill"></i>
-                      <input type="text" placeholder="name">
+                      {% if form.name.errors %}
+                        {{ form.name( placeholder="name" )}}
+                        <div class="invalid-feedback">
+                          {% for error in form.name.errors %}
+                            <span> {{ error }}</span>
+                          {% endfor %}
+                        </div>
+                        {% else %}
+                          {{ form.name( placeholder="name", value=user_info['nomeUtente']) }}
+                      {% endif%}
                     </div>
                     <div class="input-field">
                       <i class="ri-user-fill"></i>
-                      <input type="text" placeholder="last name">
+                      {% if form.lastname.errors %}
+                        {{ form.lastname( placeholder="last name" )}}
+                        <div class="invalid-feedback">
+                          {% for error in form.lastname.errors %}
+                            <span>{{ error }}</span>
+                          {% endfor %}
+                        </div>
+                        {% else %}
+                          {{ form.lastname( placeholder="last name", value=user_info['cognomeUtente']) }}
+                      {% endif%}
                     </div>
                     <div class="input-field">
                       <i class="ri-phone-fill"></i>
-                      <input type="text" placeholder="phone number">
+                      {% if form.phone.errors %}
+                        {{ form.phone( placeholder="phone number" )}}
+                        <div class="invalid-feedback">
+                          {% for error in form.phone.errors %}
+                            <span>{{ error }}</span>
+                          {% endfor %}
+                        </div>
+                        {% else %}
+                          {{ form.phone( placeholder="phone number", value=user_info['telefonoUtente']) }}
+                      {% endif%}
                   </div>
                     <div class="input-field">
                         <i class="ri-mail-check-fill"></i>
-                        <input type="email" placeholder="email">
+                        {% if form.email.errors %}
+                          {{ form.email( placeholder="email" )}}
+                          <div class="invalid-feedback">
+                            {% for error in form.email.errors %}
+                              <span>{{ error }}</span>
+                            {% endfor %}
+                          </div>
+                          {% else %}
+                            {{ form.email( placeholder="email", value=user_info['emailUtente']) }}
+                        {% endif%}
                     </div>
                     <div class="input-field">
                         <i class="ri-lock-password-fill"></i>
-                        <input type="password" placeholder="password">
+                        {% if form.password.errors %}
+                          {{ form.password( placeholder="password" )}}
+                          <div class="invalid-feedback">
+                            {% for error in form.password.errors %}
+                              <span>{{ error }}</span>
+                            {% endfor %}
+                          </div>
+                          {% else %}
+                            {{ form.password( placeholder="password" ) }}
+                        {% endif%}
                     </div>
-                    <button type="submit" class="btn-log-s solid">
+                    {% if error is not none %}
+                      <div class="alert alert-danger" role="alert">
+                          {{error}}
+                      </div>
+                      {% endif %}
+                      {% if message is not none %}
+                      <div class="alert alert-success" role="alert">
+                          {{message}}
+                      </div>
+                    {% endif %}
+                    <button id="submit" type="submit" name="submit" class="btn-log-s solid">
                         <i class="ri-edit-line"></i>
                         Edit
-                    </button>                    
+                    </button>
+                    <!-- {{ form.submit( class="btn btn-primary" )}} -->
                 </form>
             </div>
         </div>
@@ -82,6 +139,5 @@
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>  
-    <script src="main.js"></script>
   </body>
 </html>

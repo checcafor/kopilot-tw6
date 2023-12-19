@@ -45,16 +45,15 @@
 .left-half::-webkit-scrollbar {
     background: #6f79ff;
     width: 10px;
-  }
+}
 
 .left-half::-webkit-scrollbar-thumb {
     background: #fff;
     border-radius: 25px;
+}
 
-  }
 
-
-.response-card{
+.response-card {
     background: #fff;
     border-radius: 10px;
     width: 90%;
@@ -62,32 +61,32 @@
     /* min-height: 150px; */
     padding-bottom: 20px;
     box-shadow: 16px 17px 10px rgba(0, 0, 0, 0.1);
-  }
+}
 
-  .timeline-content{
+.timeline-content {
     padding: 20px;
-  }
+}
 
-  .timeline-content ul{
+.timeline-content ul{ 
     list-style: none;
     padding: 0;
     margin: 0;
-  }
+}
 
-  .timeline-content ul li a{
+.timeline-content ul li a {
     text-decoration: none;
-  }
+}
 
-  .timeline-content ul li span{
+.timeline-content ul li span {
     font-size: 16px;
     color: var(--text-color);
     display: block;
     margin-bottom: -15px;
     padding: 0px 0px 0px 30px;
     position: relative;
-  }
+}
 
-  .timeline-content ul li span::before{
+.timeline-content ul li span::before {
     content: "";
     position: absolute;
     width: 8px;
@@ -96,27 +95,22 @@
     top: 2px;
     left: 0;
     border-radius: 50px;
-  }
+}
 
-  .timeline-content ul li h3{
+.timeline-content ul li h3 {
     font-size: 22px;
     line-height: 30px;
     border: 3px solid var(--secondary-color);
     border-width: 0 0 0 3px;
     padding: 5px 0 5px 16px;
     margin-left: 5px;
-  }
+}
 
-  .left-places{
-    font-size: 17px;
-    padding: 0 0 15px 25px;
-  }
-
-  .card-btn{
+.card-btn {
     display: flex;
     align-items: center;
     flex-direction: column;
-  }
+}
 
 .form-image-take img {
     /* width: 75%; */
@@ -157,7 +151,7 @@
     padding: 1rem 0;
 }
 
-.input-ridebox-take{
+.input-ridebox-take {
     display: flex;
     flex-direction: column;
     margin: 1.1rem;
@@ -180,11 +174,11 @@
     outline: 1px solid #6f79ff;
 }
 
-.input-ridebox-take label{
+.input-ridebox-take label {
     font-size: 1.3rem;
 }
 
-.sendmodule-btn-take button{
+.sendmodule-btn-take button {
     width: 100%;
     margin-top: 2.5rem;
     border: none;

@@ -2,6 +2,7 @@
   background: #6d50e2;
   color: #fff;
 }
+
 .option-container {
   /* max-width: 1000px;
   width: 100%; */
@@ -19,6 +20,7 @@
   /* align-items: center; */
   justify-content: space-between;
 }
+
 .content .list {
   display: flex;
   flex-direction: column;
@@ -26,6 +28,7 @@
   margin-right: 50px;
   position: relative;
 }
+
 .content .list label {
   height: 60px;
   font-size: 22px;
@@ -37,13 +40,16 @@
   color: #333;
   z-index: 3;
 }
+
 #trip:checked ~ .list label.trip,
 #ride:checked ~ .list label.ride{
   color: #fff;
 }
+
 .content .list label:hover {
   color: #6d50e2;
 }
+
 .content .slider {
   position: absolute;
   left: 0;
@@ -54,50 +60,59 @@
   background: #6d50e2;
   transition: all 0.4s ease;
 }
+
 #trip:checked ~ .list .slider {
   top: 0;
 }
+
 #ride:checked ~ .list .slider {
   top: 60px;
 }
+
 .content .text-content {
   width: 80%;
   height: 100%;
 }
+
 .content .text {
   display: none;
 }
+
 .content .text .title {
   font-size: 25px;
   margin-bottom: 25px;
   font-weight: 500;
 }
+
 .content .text p {
   text-align: justify;
 }
+
 .content .text-content .trip {
   display: block;
 }
+
 #trip:checked ~ .text-content .trip,
 #ride:checked ~ .text-content .ride {
   display: block;
 }
+
 #ride:checked ~ .text-content .trip{
   display: none;
 }
+
 .content input {
   display: none;
 }
 
 .card-shower{
     width: 100%;
-    max-height: 65vh;
+    max-height: 60vh;
     display: flex;
     flex-direction: column;
     align-items: center;
     overflow-y: auto;
     padding-top: 10px;
-    /* padding: 30px; */
 }
 
 .card-shower::-webkit-scrollbar{

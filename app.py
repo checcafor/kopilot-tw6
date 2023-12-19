@@ -50,7 +50,6 @@ def login():
         hashed_password = hashlib.sha256(password.encode('utf-8')).hexdigest()  # the password is encrypted via sha256, which is irreversible
         user_info = get_user(email, hashed_password)    # the function is called to search for a user in the database with these credentials
 
-        print(user_info[0])
         # if the user with these combinations exists, then if user_info is not null     
         if user_info:
             response = make_response(redirect(url_for("home")))                         # viene creata una risposta HTTP che reindirizza il client alla route "home"
@@ -350,9 +349,9 @@ def take():
         return render_template("take.html", error = None, form = take_form, message = None)
 # ----------------------------------------------------------------
 
-# ------------------------ INFO DECORATOR ------------------------
-@app.route("/info", methods=("GET","POST")) # if this path is specified in the URL, whether via GET or POST method
-def info():
+# ------------------------ PROFILE DECORATOR ------------------------
+@app.route("/profile", methods=("GET","POST")) # if this path is specified in the URL, whether via GET or POST method
+def profile():
      # if a cookie called "auth" exists and is set to "true" then it means that the user is logged in
     is_user_authenticated = request.cookies.get('auth') == 'true'
     # if the user is NOT logged in
@@ -397,7 +396,7 @@ def info():
                 if user:    # if the user has not changed any parameters
                     connection.close()  # the database connection is closed
                     # the same page is returned, encouraging you, if necessary, to change the parameters to make a change
-                    return render_template("info.html", user_info = user_info, message = None, error = "Modifica qualche campo per rendere effettiva la modifica", form = form)
+                    return render_template("profile.html", user_info = user_info, message = None, error = "Modifica qualche campo per rendere effettiva la modifica", form = form)
                 else:   # if the user has changed at least one parameter
                     try:
                         # we then proceed to update the user information
@@ -411,24 +410,24 @@ def info():
                     finally:
                         connection.close()              # the database connection is closed
                     # the same page is returned showing a message that the user information has been modified
-                    return render_template("info.html", user_info = user_info, message = "Aggiornamento delle credenziali avventuo con successo", error = None, form = form)   
+                    return render_template("profile.html", user_info = user_info, message = "Aggiornamento delle credenziali avventuo con successo", error = None, form = form)   
             else:
                 # if there is at least one user with this phone number
                 connection.close()  # the database connection is closed
                 # the same page is returned showing an error message
-                return render_template("info.html", user_info = user_info, message = None, error = "Attenzione, questo numero di telefono è già stato utilizziato", form = form)
+                return render_template("profile.html", user_info = user_info, message = None, error = "Attenzione, questo numero di telefono è già stato utilizziato", form = form)
             
         else:
             # if there is at least one user with this email
             connection.close()  # the database connection is closed
             # the same page is returned showing an error message
-            return render_template("info.html", user_info = user_info, message = None, error = "Attenzione, questa mail è già stata utilizziata", form = form)
+            return render_template("profile.html", user_info = user_info, message = None, error = "Attenzione, questa mail è già stata utilizziata", form = form)
     
     else:
         # if the request method is "GET", then the user is simply accessing the page
         connection.close() # the database connection is closed, since we have already obtained the user information previously
         # the page is simply returned
-        return render_template("info.html", user_info = user_info, message = None, error = None, form = form)
+        return render_template("profile.html", user_info = user_info, message = None, error = None, form = form)
 # ----------------------------------------------------------------
 
 # -------------------- NOTIFICATION DECORATOR --------------------

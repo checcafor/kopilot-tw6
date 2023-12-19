@@ -46,6 +46,7 @@
         <div class="forms-container-signup">
             <div class="account">
                 <form action="/signup" novalidate class="sign-up-form" method="POST">
+                  {{ form.hidden_tag() }}
                     <h2 class="title">Sign Up</h2>
                     <div class="input-field">
                       <i class="ri-user-fill"></i>
