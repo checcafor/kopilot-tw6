@@ -1,0 +1,240 @@
+#content {
+    width: 100%;
+    height: 80vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container-cards {
+    width: 80%;
+    height: 80vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, .212);
+    overflow-y: auto;
+    padding-top: 30px;
+}
+
+/* .container-cards::-webkit-scrollbar {
+    display: none !important;
+} */
+
+.container-cards::-webkit-scrollbar {
+    background: transparent;
+    width: 10px;
+    padding: 10px;
+  }
+
+.container-cards::-webkit-scrollbar-thumb {
+    background: #c5c5c5;
+    border-radius: 25px;
+
+  }
+
+.img-placeholder{
+    width: 80%;
+    height: 80vh;   
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    align-items: center;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, .212);
+}
+
+.img-placeholder img{
+    width: 35rem;
+}
+
+.img-placeholder p{
+    color: var(--text-color);
+    font-size: large;
+    padding-top: 50px;
+}
+
+.response-card{
+    background: #fff;
+    border-radius: 10px;
+    width: 90%;
+    margin-bottom: 30px;
+    /* min-height: 150px; */
+    padding-bottom: 20px;
+    box-shadow: 9px 6px 10px 8px rgba(0, 0, 0, 0.1);
+  }
+
+  .timeline-content{
+    padding: 20px;
+  }
+
+  .timeline-content ul{
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .timeline-content ul li a{
+    text-decoration: none;
+  }
+
+  .timeline-content ul li span{
+    font-size: 16px;
+    color: var(--text-color);
+    display: block;
+    margin-bottom: -15px;
+    padding: 0px 0px 0px 30px;
+    position: relative;
+  }
+
+  .timeline-content ul li span::before{
+    content: "";
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    border: 3px solid var(--secondary-color);
+    top: 2px;
+    left: 0;
+    border-radius: 50px;
+  }
+
+  .timeline-content ul li h3{
+    font-size: 22px;
+    line-height: 30px;
+    border: 3px solid var(--secondary-color);
+    border-width: 0 0 0 3px;
+    padding: 5px 0 5px 16px;
+    margin-left: 5px;
+  }
+
+  .btn--red {
+    background-color: #ff3434;
+  }
+  .btn--red:hover {
+    background-color: #ff7575;
+  }
+
+  .btn--green {
+    background-color: #54e21c;
+  }
+  .btn--green:hover {
+    background-color: #a5f785;
+  }
+
+  .left-places{
+    font-size: 17px;
+    padding: 0 0 15px 25px;
+  }
+
+  .card-btn{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: center;
+  }
+
+  .btn-padd{
+    padding: 0px 10px 0px 10px;
+  }
+
+@media screen and (max-width: 1300px) {
+
+    .form-image-take img {
+        width: 40rem;
+    }
+
+}
+
+@media screen and (max-width: 1024px) {
+
+    .container-cards{
+        margin-top: -50px;
+        margin-top: 25px;
+        height: 85vh;
+    }
+
+    .form-image-take img {
+        width: 40rem;
+    }
+
+    #content {
+        width: 100%;
+        height: 105vh;
+    }
+}
+
+@media screen and (max-width: 950px) {
+    .form-image-take{
+        order: 2; /* Cambia l'ordine degli elementi quando la larghezza è inferiore a 950px */
+    }
+
+    .container-cards {
+        flex-direction: column; /* Cambia la direzione del contenitore a colonna */
+    }
+
+    .form-ride {
+        order: 1; /* Cambia l'ordine degli elementi quando la larghezza è inferiore a 950px */
+    }
+
+    .form-image-take img {
+        width: 30rem;
+    }
+
+    #content {
+        width: 100%;
+        height: 105vh;
+    }
+
+    .form-image-take {
+        width: 100%;
+        height: 100%;
+    }
+
+    .form-ride {
+        width: 100%;
+        padding-bottom: 30px;
+    }
+}
+
+@media screen and (max-width: 840px) {
+    .container-cards {
+        width: 85%;
+        /* height: 48rem; */
+    }
+
+    .form-image-take{
+        width: 100%;
+    }
+
+    .form-ride{
+        width: 100%;
+    }
+    
+    .form{
+        width: 325px;
+    }
+
+    .input-group {
+        width: 100%;
+    }
+
+    .input-ridebox-take input{
+        width: 100%;
+    }
+}
+
+/* @media screen and (max-width: 450px) {
+    #content {
+        width: 100%;
+        height: 90vh;
+    }
+    
+    .container-cards {
+        width: 70%;
+        height: 48rem;
+    }
+
+    .input-group {
+        width: 200px;
+    }
+} */

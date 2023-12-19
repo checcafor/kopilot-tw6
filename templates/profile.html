@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" type="image/png" href="https://image.ibb.co/fOur3b/favicon.png"/>
+    <meta name="theme-color" content="#3a9fff">
+    <title>Bricks.io - Homepage</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="profile.css">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.6.0/fonts/remixicon.css" rel="stylesheet">
+  </head>
+      
+  <body>
+    <header class="header">
+        <div class="container header__container">
+          <div class="header__logo"><img class="header__img" src="https://image.ibb.co/kcVou6/path3000.png">
+            <h1 class="header__title">ko<span class="header__light">pilot</span></h1>
+          </div> 
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+        
+          <div class="header__menu">
+            <nav id="navbar" class="header__nav collapse">
+              <ul class="header__elenco">
+                <li class="header__el"><a href="home.html" class="header__link">Home</a></li>
+                <li class="header__el"><a href="give.html" class="header__link">Give</a></li>
+                <li class="header__el"><a href="take.html" class="header__link">Take</a></li>
+                <li class="header__el header__el--blue"><a class="btn btn--white" id="signin">Reserved Area<i class="ri-arrow-down-s-line" style="padding-left: 0.5rem;"></i></a>
+                  <ul id="dropdowm-ra">
+                    <li><a href="profile.html"><i class="ri-user-settings-line"></i>Edit profile</a></li>
+                    <li><a href="requests.html"><i class="ri-mail-unread-line"></i>Requests</a></li>
+                    <li><a href="history.html"><i class="ri-history-line"></i>History</a></li>
+                    <li><a href="settings.html"><i class="ri-settings-5-line"></i>Settings</a></li>
+                    <li><a href="logout.html" id="logout-btn"><i class="ri-logout-box-r-line"></i>Logout</a></li>
+                  </ul>
+                </li>
+              </ul>
+            </nav>
+          </div>
+        </div>
+      </header>
+
+    <div class="container-profile">
+        <div class="forms-container-profile">
+            <div class="editprofile">    <!-- AGGIUSTARE -->
+                <form action="" class="profile-up-form">
+                    <h2 class="title">Edit Profile</h2>
+                    <div class="input-field">
+                      <i class="ri-user-fill"></i>
+                      <input type="text" placeholder="name">
+                    </div>
+                    <div class="input-field">
+                      <i class="ri-user-fill"></i>
+                      <input type="text" placeholder="last name">
+                    </div>
+                    <div class="input-field">
+                      <i class="ri-phone-fill"></i>
+                      <input type="text" placeholder="phone number">
+                  </div>
+                    <div class="input-field">
+                        <i class="ri-mail-check-fill"></i>
+                        <input type="email" placeholder="email">
+                    </div>
+                    <div class="input-field">
+                        <i class="ri-lock-password-fill"></i>
+                        <input type="password" placeholder="password">
+                    </div>
+                    <button type="submit" class="btn-log-s solid">
+                        <i class="ri-edit-line"></i>
+                        Edit
+                    </button>                    
+                </form>
+            </div>
+        </div>
+    </div>
+    
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>  
+    <script src="main.js"></script>
+  </body>
+</html>

@@ -1,0 +1,5 @@
+# Directory e file esclusi
+venv/
+__pycache__/
+.vscode/
+.DS_Store

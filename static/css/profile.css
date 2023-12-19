@@ -1,0 +1,146 @@
+/* .editprofile {
+    width: 0;
+    height: 0;
+} */
+
+.forms-container-profile {
+    /* position: absolute; */
+    width: 100%;
+    height: 100%;
+    /* top: 50px; */
+    /* left: 0;
+    z-index: 2; */
+}
+
+form {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding-top: 134px;
+}
+
+.title {
+    font-size: 2.2rem;
+    color: #8198AE;
+    margin-bottom: 10px;
+    font-weight: 700;
+}
+
+.input-field {
+    max-width: 380px;
+    width: 100%;
+    height: 55px;
+    background-color: #f1f4fa;
+    margin: 10px 0;
+    border-radius: 55px;
+    display: grid;
+    grid-template-columns: 15% 85%;
+    padding: 0 .4rem;
+}
+
+.input-field i {
+    text-align: center;
+    line-height: 5.4rem;
+    color: #8198AE;
+    font-size: 2.5rem;
+}
+
+.input-field input {
+    background: none;
+    outline: none;
+    border: none;
+    line-height: 0.5;
+    font-weight: 600;
+    font-size: 1.7rem;
+}
+
+.input-field input::placeholder {
+    color: #aaa;
+    font-weight: 500;
+}
+
+.btn-log-l {
+    width: 150px;
+    height: 49px;
+    border: none;
+    outline: none;
+    border-radius: 49px;
+    cursor: pointer;
+    background-color: #3A9FFF;
+    color: #fff;
+    font-weight: 600;
+    margin: 10px 0;
+    transition: .5s;
+}
+
+.btn-log-l:hover {
+    background-color: #6f79ff;
+}
+
+.btn-log-s {
+    width: 150px;
+    height: 49px;
+    border: none;
+    outline: none;
+    border-radius: 49px;
+    cursor: pointer;
+    background-color: #6f79ff;
+    color: #fff;
+    font-weight: 600;
+    margin: 10px 0;
+    transition: .5s;
+}
+
+.btn-log-s:hover {
+    background-color: #3A9FFF;
+}
+
+#profile-up-btn {
+    margin: 0;
+    background: none;
+    border: 2px solid #fff;
+    width: 130px;
+    height: 41px;
+    font-weight: 600;
+    font-size: 1.3rem;
+    position: relative;
+    z-index: 2;
+}
+
+#profile-in-btn:hover {
+    background: #6f79ff;
+    border: none;
+}
+
+#profile-up-btn:hover {
+    background: #3A9FFF;
+    border: none;
+}
+
+@media (max-width: 870px) {
+    
+    .container-profileup {
+        min-height: 800px;
+        height: 100vh;
+    }
+
+    .container-profileup:before {  /* da rivedere */
+        width: 500px;
+        height: 500px;
+        left: 60%;
+        bottom: 66%;
+        transform: translateX(-50%);
+        right: initial;
+        top: initial;
+    }
+
+    .forms-container-profileup {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: 350px;
+        left: 0;
+        z-index: 2;
+    }
+}

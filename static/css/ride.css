@@ -1,0 +1,167 @@
+#ridecont {
+    width: 100%;
+    height: 80vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container-ride {
+    width: 80%;
+    height: 80vh;
+    display: flex;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, .212);
+}
+
+.form-image-give{
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem;
+}
+
+.form-image-give {
+    background-color: #3A9FFF;
+}
+
+.form-image-give img {
+    width: 31rem;
+}
+
+.form-ride {
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 3rem;
+}
+
+.ride-header-give{
+    margin-bottom: 3rem;
+    display: flex;
+    justify-content: space-between;
+}
+
+.ride-header-give h1::after {
+    content: '';
+    display: block;
+    width: 5rem;
+    height: 0.3rem;
+    margin: 0 auto;
+    position: absolute;
+}
+
+.ride-header-give h1::after {
+    background-color: #3A9FFF;
+}
+
+.input-group {
+    display: flex;
+    flex-direction: column;
+    padding: 1rem 0;
+}
+
+.input-ridebox-give {
+    display: flex;
+    flex-direction: column;
+    margin: 1.1rem;
+}
+
+.input-ridebox-give input {
+    margin: 0.6rem 0;
+    padding: 0.8rem 1.2rem;
+    width: 300px;
+    border: none;
+    border-radius: 10px;
+    box-shadow: 1px 1px 6px #0001;
+}
+
+.input-ridebox-give input:hover {
+    background-color: #eeeeee75;
+}
+
+.input-ridebox-give input:focus-visible {
+    outline: 1px solid #3A9FFF;
+}
+
+.input-ridebox-give label {
+    font-size: 1.3rem;
+}
+
+.sendmodule-btn-give button {
+    width: 100%;
+    margin-top: 2.5rem;
+    border: none;
+    color: #fff;
+    padding: 0.62rem;
+    border-radius: 5px;
+}
+
+.sendmodule-btn-give button {
+    background-color: #3A9FFF;
+}
+
+.sendmodule-btn-give button:hover {
+    background-color: #6f79ff;
+}
+
+.sendmodule-btn-give button a  {
+    text-decoration: none;
+    font-size: 0.93rem;
+    font-weight: 500;
+}
+
+@media screen and (max-width: 1024px) {
+    .form-image-give {
+        display: none;
+    }
+
+    .container-ride {
+        /* width: 50%; */
+    }
+
+    #ridecont {
+        width: 100%;
+        height: 105vh;
+    }
+
+    .form-ride {
+        /* width: 80%; */
+        width: 100%;
+        padding-bottom: 10px;
+    }
+}
+
+@media screen and (max-width: 840px) {
+    .container-ride {
+        width: 70%;
+        /* height: 48rem; */
+    }
+
+    .input-group {
+        width: 200px;
+    }
+
+    .input-ridebox-give input {
+        /* width: 150px; */
+        width: 190px;
+    }
+}
+
+@media screen and (max-width: 450px) {
+    #ridecont {
+        width: 100%;
+        height: 90vh;
+    }
+
+    .container-ride {
+        width: 70%;
+        height: 48rem;
+    }
+
+    .input-group {
+        width: 200px;
+    }
+}

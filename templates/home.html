@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en" lang="en">
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" type="image/png" href="https://image.ibb.co/fOur3b/favicon.png"/>
+    <meta name="theme-color" content="#3a9fff">
+    <title>kopilot</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@3.6.0/fonts/remixicon.css" rel="stylesheet">
+  </head>
+      
+  <body>
+    <header class="header">
+      <div class="container header__container">
+        <div class="header__logo"><img class="header__img" src="https://image.ibb.co/kcVou6/path3000.png">
+          <h1 class="header__title">ko<span class="header__light">pilot</span></h1>
+        </div> 
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+      
+        <div class="header__menu">
+          <nav id="navbar" class="header__nav collapse">
+            <ul class="header__elenco">
+              <li class="header__el"><a href="home.html" class="header__link">Home</a></li>
+              <li class="header__el"><a href="give.html" class="header__link">Give</a></li>
+              <li class="header__el"><a href="take.html" class="header__link">Take</a></li>
+              <li class="header__el header__el--blue"><a class="btn btn--white" id="signin">Reserved Area<i class="ri-arrow-down-s-line" style="padding-left: 0.5rem;"></i></a>
+                <ul id="dropdowm-ra">
+                  <li><a href="profile.html"><i class="ri-user-settings-line"></i>Edit profile</a></li>
+                  <li><a href="requests.html"><i class="ri-mail-unread-line"></i>Requests</a></li>
+                  <li><a href="history.html"><i class="ri-history-line"></i>History</a></li>
+                  <li><a href="settings.html"><i class="ri-settings-5-line"></i>Settings</a></li>
+                  <li><a href="logout.html" id="logout-btn"><i class="ri-logout-box-r-line"></i>Logout</a></li>
+                </ul>
+              </li>
+            </ul>
+          </nav>
+        </div>
+      </div>
+    </header>
+
+    <div class="sect sect--padding-top">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="site">
+              <h1 class="site__title">Let's Travel Together!</h1>
+              <h2 class="site__subtitle">drive green, ride clean</h2> <!-- MODIFICA TESTO QUI -->
+              <div class="site__box-link">
+                <a class="btn btn--width" href="#rules">how its work</a>
+                <a class="btn btn--revert btn--width" href="mailto:kop.kopilot@gmail.com"><i class="ri-mail-send-line" style="padding-right: 1rem;"></i>Contact Us</a>
+              </div>
+              <img class="site__img" src="img/img_site.svg">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <section id="rules">
+      <div class="sect sect--padding-bottom">
+        <div class="container">
+          <div class="row row--center">
+            <h1 class="row__title"> Today you are ...</h1>
+            <h2 class="row__sub">Choose the role for your next ride</h2>
+          </div>
+          <div class="row row--center row--margin">
+            <!-- prima card -->
+            <div class="col-md-6 col-sm-6 card-box card-box--violet">
+              <div class="card-box__wrap">
+                <div class="card-box__img"></div>
+                <h1 class="card-box__title" style="color: var(--secondary-color);">DRIVER</h1>
+                <p class="card-box__feat"> you need to</p>
+                <ul class="card-box__list">
+                  <li class="card-box__list-el">set your destination and the departure time</li>
+                  <li class="card-box__list-el">select your car and available seats</li>
+                  <li class="card-box__list-el">wait for your ko-pilot and accept incoming requests</li>
+                  <li class="card-box__list-el">enjoy the ride</li>
+                </ul>
+                <div class="card-box__btn">
+                  <a href="give.html" class="btn btn--violet btn--width">Ride now</a>
+                </div>
+              </div>
+            </div>
+            <!-- seconda card -->
+            <div class="col-md-6 col-sm-6 card-box card-box--blue">
+              <div class="card-box__wrap">
+                <div class="card-box__img"></div>
+                <h1 class="card-box__title">KOPILOT</h1>
+                <p class="card-box__feat">you need to</p>
+                <ul class="card-box__list">
+                  <li class="card-box__list-el">set your destination</li>
+                  <li class="card-box__list-el">select your rider and send the ride request</li>
+                  <li class="card-box__list-el">wait the response</li>
+                  <li class="card-box__list-el">enjoy the ride (comfortably <i class="ri-user-smile-line"></i>)</li>
+                </ul>
+                <div class="card-box__btn">
+                  <a href="take.html" class="btn btn--blue btn--width">Ride now</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <div class="sect sect--padding-bottom">
+      <div class="container">
+        <div class="row">
+          <h1 class="row__title">Contact Us </h1>
+          <h2 class="row__sub">Feel free to ask any questions</h2>
+        </div>
+        <div class="row row--margin">
+          <div class="col-md-1"></div>
+          <div class="col-md-4">
+            <div class="contacts">
+              <a href="#" class="contacts__link"><img src="https://image.ibb.co/kcVou6/path3000.png"><h1 class="contacts_title-ag">ko<span class="contacts--light">pilot</span></h1></a>
+              <p class="contacts__address">
+                Università degli Studi di Napoli - Parthenope<br>
+                Centro Direzionale ISOLA C4, 80133 Naples NA<br>
+                Italy
+              </p>
+              <p class="contacts__info">
+                mail:  <a href="mailto: kop.kopilot@gmail.com"class="contacts__info-link">kop.kopilot@gmail.com</a> <br>
+                instagram:  <a href="https://www.instagram.com/checcaformisano/"class="contacts__info-link">Francesca Formisano - 0124/2481</a> <br>
+                instagram:  <a href="https://www.instagram.com/fraachakra/"class="contacts__info-link">Francesco De Micco - 0124/2556</a> <br>
+                instagram:  <a href="https://www.instagram.com/tucanox01/"class="contacts__info-link">Giuseppe Fusco - 0124/2696</a>
+              </p>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <form id="contact" class="form">
+              <div class="form-group">
+                <select class="form__field form__select">
+                  <option selected value>Choose topic*</option>
+                  <option value=1>Kopilot</option>
+                  <option value=2>Driver</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <div class="form__field--half">
+                  <input type="text" placeholder="Name*" class="form__field form__text"></input>
+                </div>
+                <div class="form__field--half">
+                  <input type="text" placeholder="Surname" class="form__field form__text"></input>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <div class="form__field--half">
+                  <input type="text" placeholder="Email address*" class="form__field form__text"></input>
+                </div>
+                <div class="form__field--half">
+                  <input type="text" placeholder="Phone number" class="form__field form__text"></input>
+                </div>
+              </div>
+
+              <div class="form-group">
+                <textarea type="text" placeholder="Your messsage*" class="form__field form__textarea"></textarea>
+                <button class="btn btn--up btn--width" type="submit">Submit</button>
+              </div> 
+            </form>
+          </div>   
+          <div class="col-md-1"></div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="sect sect--violet ">
+      <img src="img/footer.png" class="career-img">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-12">
+            <h1 class="career_title">Oh! Your have digged our website in search for the new job?</h1>
+            <h1 class="career_sub">We will pleased to have you onboard! Check open positions.</h1>
+            <a href="#" class="btn btn--white btn--width">Careers</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <footer class="footer">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-2 col-xs-6">
+            <img class="footer__img" src="https://image.ibb.co/kcVou6/path3000.png"> <h1 class="footer__title">ko<span class="footer__light">pilot</span></h1></div>
+          <div class="col-md-10 col-xs-6">
+            <div class="footer__social">
+              <a href="#" class="footer__social-l"><i class="ri-github-fill"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>  
+    <script src="main.js"></script>
+  </body>
+</html>
