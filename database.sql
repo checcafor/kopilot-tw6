@@ -1,7 +1,7 @@
--- DROP TABLE IF EXISTS Utenti;
+DROP TABLE IF EXISTS Utenti;
 DROP TABLE IF EXISTS Viaggi;
 DROP TABLE IF EXISTS RichiestePassaggio;
--- DROP TABLE IF EXISTS Tracking;
+DROP TABLE IF EXISTS Tracking;
 
 PRAGMA foreign_keys = ON;
 
@@ -12,7 +12,7 @@ CREATE TABLE IF NOT EXISTS Utenti (
     cognomeUtente TEXT NOT NULL,
     emailUtente TEXT UNIQUE NOT NULL,
     passwordUtente TEXT NOT NULL,
-    telefonoUtente UNIQUE TEXT
+    telefonoUtente TEXT UNIQUE NOT NULL
 );
 
 -- Tabella per i viaggi

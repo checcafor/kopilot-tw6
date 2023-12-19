@@ -50,6 +50,7 @@ def login():
         hashed_password = hashlib.sha256(password.encode('utf-8')).hexdigest()  # the password is encrypted via sha256, which is irreversible
         user_info = get_user(email, hashed_password)    # the function is called to search for a user in the database with these credentials
 
+        print(user_info[0])
         # if the user with these combinations exists, then if user_info is not null     
         if user_info:
             response = make_response(redirect(url_for("home")))                         # viene creata una risposta HTTP che reindirizza il client alla route "home"
@@ -92,6 +93,8 @@ def signup():
         phone = str(singup_form.phone.data)          # the telephone number is retrieved from the form
         email = str(singup_form.email.data)          # the email is retrieved from the form making sure it is a string (converting to a string)
         password = str(singup_form.password.data)    # the password is recovered from the form making sure it is a string (converting to a string)
+
+        print("debug")
 
         # if a user with that email already exists
         if username_already_exists(email):

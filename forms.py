@@ -39,10 +39,10 @@ class SingupForm(FlaskForm):
     ])
 
     # required boolean field to accept the terms and conditions of the site
-    termsandconditions = BooleanField('Accept Terms & Conditions', validators=[DataRequired()])
+    # termsandconditions = BooleanField('Accept Terms & Conditions', validators=[DataRequired()])
 
     # submit type field to send the form and validate it 
-    submit = SubmitField('Singup')
+    submit = SubmitField('Sing up')
 # ----------------------------------------------------------------
 
 # -------------------------- LOGIN FORM --------------------------    

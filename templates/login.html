@@ -45,18 +45,50 @@
     <div class="container-signin">
         <div class="forms-container-signin">
             <div class="account">
-                <form action="" class="sign-in-form">
-                    <h2 class="title">Sign In</h2>
-                    <div class="input-field">
-                        <i class="ri-user-fill"></i>
-                        <input type="email" placeholder="email">
+                <form action="/login" novalidate class="sign-in-form" method="POST">
+                  {{ form.hidden_tag() }}
+                  <h2 class="title">Sign In</h2>
+                  <div class="input-field">
+                    <i class="ri-user-fill"></i>
+                    {% if form.email.errors %} <!-- CORREGGERE IN CASO DI ERRORE commento kekka -->
+                      {{ form.email( placeholder="email" )}}
+                      <div class="invalid-feedback">
+                        {% for error in form.email.errors %}
+                          <span>{{ error }}</span>
+                        {% endfor %}
+                      </div>
+                      {% else %}
+                        {{ form.email( placeholder="email" )}}
+                    {% endif%}
+                  </div>
+                  <div class="input-field">
+                    <i class="ri-lock-password-fill"></i>
+                    {% if form.password.errors %}
+                      {{ form.password( placeholder="password" )}} 
+                      <div style="color: red!important;">
+                        {% for error in form.password.errors %}
+                          <span>{{ error }}</span>
+                        {% endfor %}
+                      </div>
+                      {% else %}
+                        {{ form.password( placeholder="password" )}}
+                    {% endif%}
+                  </div>
+                  <div class="mb-3 form-check">
+                    {{ form.rememberme(class="form-check-input") }}
+                    {{ form.rememberme.label( class="remember-me") }}
+                  </div>
+                  {% if message is not none %} <!-- qua vanno i popup -->
+                    <div class="alert alert-success" role="alert">
+                      {{message}}
                     </div>
-                    <div class="input-field">
-                        <i class="ri-lock-password-fill"></i>
-                        <input type="password" placeholder="password">
+                  {% endif %}
+                  {% if error is not none %}
+                    <div class="alert alert-danger" role="alert">
+                      {{error}}
                     </div>
-                    <input type="submit" value="Login" class="btn-log-l solid">
-                    <p class="remember-me">ricordami</p>
+                  {% endif %}
+                  {{ form.submit( class="btn-log-l solid" )}}
                 </form>
             </div>
         </div>

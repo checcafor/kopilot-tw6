@@ -26,7 +26,7 @@
     border-radius: 50%;
     background: linear-gradient(-45deg, #4481eb, #04befe); /* rendilo trasparente */
     top: 62%;
-    right: -35%;
+    right: -30%;
     transform: translateY(-50%);
     /* z-index: 6; */
 }

@@ -45,29 +45,84 @@
     <div class="container-signup">
         <div class="forms-container-signup">
             <div class="account">
-                <form action="" class="sign-up-form">
+                <form action="/signup" novalidate class="sign-up-form" method="POST">
                     <h2 class="title">Sign Up</h2>
                     <div class="input-field">
                       <i class="ri-user-fill"></i>
-                      <input type="text" placeholder="name">
+                      {% if form.name.errors %}
+                      {{ form.name( placeholder="name" )}}
+                      <div class="invalid-feedback">
+                        {% for error in form.name.errors %}
+                          <span>{{ error }}</span>
+                        {% endfor %}
+                      </div>
+                      {% else %}
+                        {{ form.name( placeholder="name" )}}
+                      {% endif%}
                     </div>
                     <div class="input-field">
                       <i class="ri-user-fill"></i>
-                      <input type="text" placeholder="last name">
+                      {% if form.lastname.errors %}
+                        {{ form.lastname( placeholder="last name" )}}
+                        <div class="invalid-feedback">
+                          {% for error in form.lastname.errors %}
+                            <span>{{ error }}</span>
+                          {% endfor %}
+                        </div>
+                        {% else %}
+                          {{ form.lastname( placeholder="last name" )}}
+                      {% endif%}
                     </div>
                     <div class="input-field">
                       <i class="ri-phone-fill"></i>
-                      <input type="text" placeholder="phone number">
-                  </div>
-                    <div class="input-field">
-                        <i class="ri-mail-check-fill"></i>
-                        <input type="email" placeholder="email">
+                      {% if form.phone.errors %}
+                        {{ form.phone( placeholder="phone number" )}}
+                        <div class="invalid-feedback">
+                          {% for error in form.phone.errors %}
+                            <span>{{ error }}</span>
+                          {% endfor %}
+                        </div>
+                        {% else %}
+                          {{ form.phone( placeholder="phone number" )}}
+                      {% endif%}
                     </div>
                     <div class="input-field">
-                        <i class="ri-lock-password-fill"></i>
-                        <input type="password" placeholder="password">
+                      <i class="ri-mail-check-fill"></i>
+                      {% if form.email.errors %}
+                        {{ form.email( placeholder="email" )}}
+                        <div class="invalid-feedback">
+                          {% for error in form.email.errors %}
+                            <span>{{ error }}</span>
+                          {% endfor %}
+                        </div>
+                        {% else %}
+                          {{ form.email( placeholder="email" )}}
+                      {% endif%}
                     </div>
-                    <input type="submit" value="Sign Up" class="btn-log-s solid">
+                    <div class="input-field">
+                      <i class="ri-lock-password-fill"></i>
+                      {% if form.password.errors %}
+                        {{ form.password( placeholder="password" )}}
+                        <div class="invalid-feedback">
+                          {% for error in form.password.errors %}
+                            <span>{{ error }}</span>
+                          {% endfor %}
+                        </div>
+                        {% else %}
+                          {{ form.password( placeholder="password" )}}
+                      {% endif%}
+                    </div>
+                    {% if message is not none %}
+                      <div class="alert alert-danger" role="alert">
+                        <!--
+                        <script>
+                          alert("{{message}}");
+                        </script>
+                        -->
+                        {{message}}
+                      </div>
+                    {% endif %}
+                    {{ form.submit( class="btn-log-s solid" )}} 
                 </form>
             </div>
         </div>
