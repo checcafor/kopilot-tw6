@@ -103,6 +103,20 @@ form {
     font-weight: 500;
 }
 
+.invalid-input {
+    display: flex;
+    flex-direction: column; 
+    align-items: flex-start; 
+    padding-left: 2rem; 
+}
+
+.invalid-input span {
+    display: flex;
+    position: fixed;
+    color: red;
+    font-size: 1.2rem;
+}
+
 .btn-log-l {
     width: 150px;
     height: 49px;

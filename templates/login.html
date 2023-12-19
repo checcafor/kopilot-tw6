@@ -50,9 +50,9 @@
                   <h2 class="title">Sign In</h2>
                   <div class="input-field">
                     <i class="ri-user-fill"></i>
-                    {% if form.email.errors %} <!-- CORREGGERE IN CASO DI ERRORE commento kekka -->
+                    {% if form.email.errors %}
                       {{ form.email( placeholder="email" )}}
-                      <div class="invalid-feedback">
+                      <div class="invalid-input">
                         {% for error in form.email.errors %}
                           <span>{{ error }}</span>
                         {% endfor %}
@@ -65,7 +65,7 @@
                     <i class="ri-lock-password-fill"></i>
                     {% if form.password.errors %}
                       {{ form.password( placeholder="password" )}} 
-                      <div style="color: red!important;">
+                      <div  class="invalid-input">
                         {% for error in form.password.errors %}
                           <span>{{ error }}</span>
                         {% endfor %}
