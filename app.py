@@ -134,6 +134,19 @@ def home():
     if not is_user_authenticated:
         return redirect(url_for('index'))       # is redirected to the index
 
+    # is rendered to the home page
+    return render_template("home.html") 
+# ----------------------------------------------------------------
+
+# ----------------------- HISTORY DECORATOR ------------------------
+@app.route("/history") # if this path is specified in the URL
+def history():
+    # if a cookie called "auth" exists and is set to "true" then it means that the user is logged in
+    is_user_authenticated = request.cookies.get('auth') == 'true'
+    # if the user is NOT logged in
+    if not is_user_authenticated:
+        return redirect(url_for('index'))       # is redirected to the index
+
     _idUtente = request.cookies.get('idUtente') # the logged in user ID is retrieved
     user_trips = get_user_trips(_idUtente)      # call to get trips scheduled by the user
     user_rides = get_user_rides(_idUtente)      # call to get the steps requested by the user
@@ -141,8 +154,8 @@ def home():
     notificationsNumber = get_notifications_number()    # the number of notifications from the logged in user is retrieved
     notifications = get_notifications()                 # notifications of the logged in user are retrieved
 
-    # is rendered to the home page with the information of the planned trips and steps requested by the logged in user and also the notifications
-    return render_template("home.html", trips=user_trips, rides = user_rides, notificationsNumber = notificationsNumber, notifications = notifications) 
+    # is rendered to the history page with the information of the planned trips and steps requested by the logged in user and also the notifications
+    return render_template("history.html", trips=user_trips, rides = user_rides, notificationsNumber = notificationsNumber, notifications = notifications) 
 # ----------------------------------------------------------------
 
 # ------------------- DELETE TRIP DECORATOR ----------------------
@@ -416,8 +429,8 @@ def info():
 # ----------------------------------------------------------------
 
 # -------------------- NOTIFICATION DECORATOR --------------------
-@app.route("/notifications") # if this path is specified in the URL
-def notifications():
+@app.route("/requests") # if this path is specified in the URL
+def requests():
     # if a cookie called "auth" exists and is set to "true" then it means that the user is logged in
     is_user_authenticated = request.cookies.get('auth') == 'true'
     # if the user is NOT logged in
@@ -426,8 +439,8 @@ def notifications():
     
     notifications = get_notifications()         # notifications of the logged in user are retrieved
 
-    # the notifications page is rendered with the notification data structure with them in it
-    return render_template("notifications.html", notifications = notifications) 
+    # the requests page is rendered with the notification data structure with them in it
+    return render_template("requests.html", notifications = notifications) 
 # ----------------------------------------------------------------
 
 # ------------------  ACCEPT REQUEST DECORATOR -------------------

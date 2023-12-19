@@ -14,7 +14,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    background: url("./static/img/background.png"), #4571c4;
+    background: url("../img/background.png"), #4571c4;
     box-shadow: 0 15px 30px rgba(0, 0, 0, 0.5);
 }
 
