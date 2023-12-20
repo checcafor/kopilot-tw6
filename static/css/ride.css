@@ -90,7 +90,7 @@
     font-size: 1.3rem;
 }
 
-.sendmodule-btn-give button {
+.sendmodule-btn-give input {
     width: 100%;
     margin-top: 2.5rem;
     border: none;
@@ -99,15 +99,15 @@
     border-radius: 5px;
 }
 
-.sendmodule-btn-give button {
+.sendmodule-btn-give input {
     background-color: #3A9FFF;
 }
 
-.sendmodule-btn-give button:hover {
+.sendmodule-btn-give input:hover {
     background-color: #6f79ff;
 }
 
-.sendmodule-btn-give button a  {
+.sendmodule-btn-give input a  {
     text-decoration: none;
     font-size: 0.93rem;
     font-weight: 500;

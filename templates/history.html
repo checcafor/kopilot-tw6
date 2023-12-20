@@ -66,200 +66,95 @@
               <div class="text-content">
 
                 <div class="trip text">
-                  <div class="title">Trips Content</div>
+                  <div class="title">Trips History</div>
                   <div class="card-shower">
-                    <div class="response-card">
-                      <div class="timeline-content">
-                        <ul>
-                          <li>
-                            <span> Partenza:</span>
-                            <h3>Indirizzo di partenza del driver</h3>
-                          </li>
-                          <li>
-                            <span> Data:</span>
-                            <h3>01/01/0101</h3>
-                          </li>
-                          <li>
-                            <span> Posti disponibili:</span>
-                            <h3>69</h3>
-                          </li>
-                        </ul>
-                      </div>
-                      <div class="left-places">
-                        <b>Stato:</b> <span class="badge text-bg-success">Terminated</span> 
-                        <span class="badge text-bg-warning">In Corso...</span>
-                      </div>
-                      <div class="card-btn">
-                        <div class="btn-padd">
-                          <a href="/give" class="btn btn-finish btn--width">Finish</a>
+                    {% if trips %}
+                      {% for trip in trips %}
+                        <div class="response-card" id="viaggio_{{ trip.idViaggio }}">
+                          <div class="timeline-content">
+                            <ul>
+                              <li>
+                                <span> Partenza:</span>
+                                <h3>{{ trip.indirizzoPartenza }}</h3>
+                              </li>
+                              <li>
+                                <span> Data:</span>
+                                <h3>{{ trip.time_stamp }}</h3>
+                              </li>
+                              <li>
+                                <span> Posti disponibili:</span>
+                                <h3>{{ trip.postiDisponibili }}</h3>
+                              </li>
+                            </ul>
+                          </div>
+                          <div class="left-places">
+                            {% if trip.Stato == 'Concluso' %}
+                              <b>Stato:</b> <span class="badge text-bg-success">{{ trip.Stato }}</span>
+                            {% elif trip.Stato == 'In Corso...' %}
+                              <b>Stato:</b> <span class="badge text-bg-warning">{{ trip.Stato }}</span>
+                            {% else %}
+                              <b>Stato:</b> <span class="badge text-bg-danger">{{ trip.Stato }}</span>
+                            {% endif %}
+                          </div>
+                          <div class="card-btn">
+                            <div class="btn-padd">
+                              <a onclick="endTrip('{{ trip.idViaggio }}')" id="ending_{{ trip.idViaggio }}" class="btn btn-finish btn--width">Finish</a>
+                            </div>
+                            <div class="btn-padd">
+                              <a onclick="deleteTrip('{{ trip.idViaggio }}')" class="btn btn-delete btn--width">Delete</a>
+                            </div>
+                          </div>
                         </div>
-                        <div class="btn-padd">
-                          <a href="/give" class="btn btn-delete btn--width">Delete</a>
-                        </div>
+                      {% endfor %}
+                    {% else %}
+                      <div class="img-placeholder">
+                        <img src="static/img/log.svg">
+                        <p id="placeholder-p"> It looks like you haven't entered any trips yet, enter one <b><a href="/give">here</a></b> now!</p>
                       </div>
-                    </div>
-
-                    <div class="response-card">
-                      <div class="timeline-content">
-                        <ul>
-                          <li>
-                            <a href="#">
-                              <span> Partenza:</span>
-                              <h3>Indirizzo di partenza del driver</h3>
-                            </a>
-                          </li>
-                          <li>
-                            <a href="#">
-                              <span> Data:</span>
-                              <h3>01/01/0101</h3>
-                            </a>
-                          </li>
-                          <li>
-                            <a href="#">
-                              <span> Posti disponibili:</span>
-                              <h3>69</h3>
-                            </a>
-                          </li>
-                        </ul>
-                      </div>
-                      <div class="left-places">
-                        <b>Stato:</b> <span class="badge text-bg-success">Terminated</span> 
-                        <span class="badge text-bg-warning">In Corso...</span>
-                      </div>
-                      <div class="card-btn">
-                        <div class="btn-padd">
-                          <a href="/give" class="btn btn--green btn--width">Finish</a>
-                        </div>
-                        <div class="btn-padd">
-                          <a href="/give" class="btn btn--red btn--width">Delete</a>
-                        </div>
-                      </div>
-                    </div>
-
-                    <div class="response-card">
-                      <div class="timeline-content">
-                        <ul>
-                          <li>
-                            <a href="#">
-                              <span> Partenza:</span>
-                              <h3>Indirizzo di partenza del driver</h3>
-                            </a>
-                          </li>
-                          <li>
-                            <a href="#">
-                              <span> Data:</span>
-                              <h3>01/01/0101</h3>
-                            </a>
-                          </li>
-                          <li>
-                            <a href="#">
-                              <span> Posti disponibili:</span>
-                              <h3>69</h3>
-                            </a>
-                          </li>
-                        </ul>
-                      </div>
-                      <div class="left-places">
-                        <b>Stato:</b> <span class="badge text-bg-success">Terminated</span> 
-                        <span class="badge text-bg-warning">In Corso...</span>
-                      </div>
-                      <div class="card-btn">
-                        <div class="btn-padd">
-                          <a href="/give" class="btn btn--green btn--width">Finish</a>
-                        </div>
-                        <div class="btn-padd">
-                          <a href="/give" class="btn btn--red btn--width">Delete</a>
-                        </div>
-                      </div>
-                    </div>
+                    {% endif %}
                   </div>
                 </div>
 
                 <div class="ride text">
-                  <div class="title">Ride Content</div>
+                  <div class="title">Rides History</div>
                   <div class="card-shower">
-                    <div class="response-card">
-                      <div class="timeline-content">
-                        <ul>
-                          <li>
-                              <span> Partenza:</span>
-                              <h3>Indirizzo di partenza del driver</h3>
-                          </li>
-                          <li>
-                              <span> Arrivo:</span>
-                              <h3>Indirizzo di arrivo del driver</h3>
-                          </li>
-                        </ul>
-                      </div>
-                      <div class="left-places">
-                        <b>Stato:</b> <span class="badge text-bg-success">Acceppted</span>
-                        <span class="badge text-bg-danger">Rejected</span>
-                        <span class="badge text-bg-warning">Pending</span>
-                      </div>
-                      <div class="card-btn">
-                        <div class="btn-padd">
-                          <a href="/give" class="btn btn-delete btn--width">Delete</a>
+                    {% if rides %}
+                      {% for ride in rides %}
+                        <div class="response-card" id="ride_{{ ride.idViaggio }}">
+                          <div class="timeline-content">
+                            <ul>
+                              <li>
+                                  <span> Partenza:</span>
+                                  <h3>{{ ride.indirizzoPartenza }}</h3>
+                              </li>
+                              <li>
+                                  <span> Arrivo:</span>
+                                  <h3>{{ ride.indirizzoArrivo }}</h3>
+                              </li>
+                            </ul>
+                          </div>
+                          <div class="left-places">
+                            {% if ride.Stato == 'In Attesa' %}
+                              <b>Stato:</b> <span class="badge text-bg-warning">{{ ride.Stato }}</span>
+                            {% elif ride.Stato == 'Accettato' %}
+                              <b>Stato:</b> <span class="badge text-bg-success">{{ ride.Stato }}</span>
+                            {% else %}
+                              <b>Stato:</b> <span class="badge text-bg-danger">{{ ride.Stato }}</span>
+                            {% endif %}
+                          </div>
+                          <div class="card-btn">
+                            <div class="btn-padd">
+                              <a onclick="cancelRide('{{ ride.idViaggio }}')" id="delRide_{{ ride.idViaggio }}" class="btn btn-delete btn--width">Delete</a>
+                            </div>
+                          </div>
                         </div>
+                      {% endfor %}
+                    {% else %}
+                      <div class="img-placeholder">
+                        <img src="static/img/log.svg">
+                        <p id="placeholder-p"> It looks like you haven't requested any ride yet, enter one <b><a href="/take">here</a></b> now!</p>
                       </div>
-                    </div>
-
-                    <div class="response-card">
-                      <div class="timeline-content">
-                        <ul>
-                          <li>
-                            <a href="#">
-                              <span> Partenza:</span>
-                              <h3>Indirizzo di partenza del driver</h3>
-                            </a>
-                          </li>
-                          <li>
-                            <a href="#">
-                              <span> Arrivo:</span>
-                              <h3>Indirizzo di arrivo del driver</h3>
-                            </a>
-                          </li>
-                        </ul>
-                      </div>
-                      <div class="left-places">
-                        <b>Stato:</b> <span class="badge text-bg-success">Acceppted</span>
-                        <span class="badge text-bg-danger">Rejected</span>
-                        <span class="badge text-bg-warning">Pending</span>
-                      </div>
-                      <div class="card-btn">
-                        <div class="btn-padd">
-                          <a href="/give" class="btn btn--red btn--width">Delete</a>
-                        </div>
-                      </div>
-                    </div>
-
-                    <div class="response-card">
-                      <div class="timeline-content">
-                        <ul>
-                          <li>
-                            <a href="#">
-                              <span> Partenza:</span>
-                              <h3>Indirizzo di partenza del driver</h3>
-                            </a>
-                          </li>
-                          <li>
-                            <a href="#">
-                              <span> Arrivo:</span>
-                              <h3>Indirizzo di arrivo del driver</h3>
-                            </a>
-                          </li>
-                        </ul>
-                      </div>
-                      <div class="left-places">
-                        <b>Stato:</b> <span class="badge text-bg-success">Acceppted</span>
-                        <span class="badge text-bg-danger">Rejected</span>
-                        <span class="badge text-bg-warning">Pending</span>
-                      </div>
-                      <div class="card-btn">
-                        <div class="btn-padd">
-                          <a href="/give" class="btn btn--red btn--width">Delete</a>
-                        </div>
-                      </div>
-                    </div>
+                    {% endif %}
                   </div>
                 </div>
               </div>
@@ -269,7 +164,25 @@
         </div>
     </section>
 
+    <script>
+      // Chiama la funzione al caricamento della pagina
+      document.addEventListener('DOMContentLoaded', function() {
+        // Chiamare la funzione per ogni trip
+        {% for trip in trips %}
+          controllaStatoViaggio('{{ trip.idViaggio }}');
+        {% endfor %}
+        // Chiamare la funzione per ogni ride
+        {% for ride in rides %}
+          controllaStatoPassaggio('{{ ride.idViaggio }}');
+        {% endfor %}
+      });
+    </script>
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script type="text/javascript" src="{{ url_for('static', filename='js/delete_trip.js') }}"></script>
+    <script type="text/javascript" src="{{ url_for('static', filename='js/delete_ride.js') }}"></script>
+    <script type="text/javascript" src="{{ url_for('static', filename='js/end_trip.js') }}"></script>
+    <script type="text/javascript" src="{{ url_for('static', filename='js/controlli_TripRide.js') }}"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>  
   </body>
 </html>

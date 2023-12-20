@@ -46,101 +46,44 @@
     </header> 
 
     <section id="content">
-        <!-- <div class="img-placeholder">
-          <img src="static/img/log.svg">
-          <p id="placeholder-p"> You have no pending requests!</p>
-        </div> -->
-        <div class="container-cards">   
-          <div class="response-card">
-            <div class="timeline-content">
-              <ul>
-                <li>
-                  <span> Partenza:</span>
-                  <h3>Indirizzo di partenza del rider</h3>
-                </li>
-                <li>
-                  <span> Arrivo:</span>
-                  <h3>Indirizzo di arrivo del rider</h3>
-                </li>
-              </ul>
-            </div>
-            <!-- <div class="left-places">
-              <span> Posti rimanenti: <b>69</b></span>
-            </div> -->
-            <div class="card-btn">
-              <div class="btn-padd">
-                <a href="/give" class="btn btn--green btn--width">Accept</a>
-              </div>
-              <div class="btn-padd">
-                <a href="/give" class="btn btn--red btn--width">Reject</a>
-              </div>
-            </div>
-          </div>
-
-          <div class="response-card">
-            <div class="timeline-content">
-              <ul>
-                <li>
-                  <a href="#">
+        {% if notifications %} 
+          <div class="container-cards">   
+            {% for notify in notifications %}
+            <div class="response-card" id="richiesta_{{ notify.idRichiestaPassaggio }}">
+              <div class="timeline-content">
+                <ul>
+                  <li>
                     <span> Partenza:</span>
-                    <h3>Indirizzo di partenza del driver</h3>
-                  </a>
-                </li>
-                <li>
-                  <a href="#">
+                    <h3>{{ notify.indirizzoPartenzaRider }}</h3>
+                  </li>
+                  <li>
                     <span> Arrivo:</span>
-                    <h3>Indirizzo di arrivo del driver</h3>
-                  </a>
-                </li>
-              </ul>
-            </div>
-            <!-- <div class="left-places">
-              <span> Posti rimanenti: <b>69</b></span>
-            </div> -->
-            <div class="card-btn">
-              <div class="btn-padd">
-                <a href="/give" class="btn btn--green btn--width">Accept</a>
+                    <h3>{{ notify.indirizzoArrivo }}</h3>
+                  </li>
+                </ul>
               </div>
-              <div class="btn-padd">
-                <a href="/give" class="btn btn--red btn--width">Reject</a>
+              <div class="card-btn">
+                <div class="btn-padd">
+                  <a class="btn btn--green btn--width" onclick="acceptRide('{{ notify.idRichiestaPassaggio }}')">Accept</a>
+                </div>
+                <div class="btn-padd">
+                  <a class="btn btn--red btn--width" onclick="rejectRide('{{ notify.idRichiestaPassaggio }}')">Reject</a>
+                </div>
               </div>
             </div>
+            {% endfor %}
           </div>
-
-          <div class="response-card">
-            <div class="timeline-content">
-              <ul>
-                <li>
-                  <a href="#">
-                    <span> Partenza:</span>
-                    <h3>Indirizzo di partenza del driver</h3>
-                  </a>
-                </li>
-                <li>
-                  <a href="#">
-                    <span> Arrivo:</span>
-                    <h3>Indirizzo di arrivo del driver</h3>
-                  </a>
-                </li>
-              </ul>
-            </div>
-            <!-- <div class="left-places">
-              <span> Posti rimanenti: <b>69</b></span>
-            </div> -->
-            <div class="card-btn">
-              <div class="btn-padd">
-                <a href="/give" class="btn btn--green btn--width">Accept</a>
-              </div>
-              <div class="btn-padd">
-                <a href="/give" class="btn btn--red btn--width">Reject</a>
-              </div>
-            </div>
+        {% else %}
+          <div class="img-placeholder">
+            <img src="static/img/log.svg">
+            <p id="placeholder-p"> You have no pending requests!</p>
           </div>
-          
-        </div>
+        {% endif %}
     </section>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script type="text/javascript" src="{{ url_for('static', filename='js/accept_ride.js') }}"></script>
+    <script type="text/javascript" src="{{ url_for('static', filename='js/reject_ride.js') }}"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>  
   </body>
 </html>

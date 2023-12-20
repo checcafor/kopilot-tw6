@@ -9,9 +9,10 @@
     <link rel="stylesheet" href="static/css/style.css">
     <link rel="stylesheet" href="static/css/ride.css">
     <link href="https://cdn.jsdelivr.net/npm/remixicon@3.6.0/fonts/remixicon.css" rel="stylesheet">
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBoLENlbl6kET98KZt7Mxsx7txVQP6_72I&libraries=places" defer></script>
   </head>
       
-  <body>
+  <body onload="init_tracking();">
     <header class="header">
         <div class="container header__container">
           <div class="header__logo"><img class="header__img" src="https://image.ibb.co/kcVou6/path3000.png">
@@ -51,7 +52,8 @@
                 <img src="static/img/give.svg" alt="">
             </div>
             <div class="form-ride">
-                <form action="#">
+                <form role="form" autocomplete="off" action="/give" method="POST" novalidate>
+                    {{ form.hidden_tag()}}
                     <div class="ride-header-give">
                         <div class="ride-title">
                             <h1>GIVE</h1>
@@ -59,17 +61,53 @@
                     </div>
                     <div class="input-group">
                         <div class="input-ridebox-give">
-                            <label for="departure">departure</label>
-                            <input id="departure" type="text"> <!-- dovra' essere non immettibile -->
+                          {{ form.startPos.label()}}
+                          {% if form.startPos.errors %}
+                            {{ form.startPos( class="form-control is-invalid" )}}
+                            <div class="invalid-feedback">
+                              {% for error in form.startPos.errors %}
+                                <span>{{ error }}</span>
+                              {% endfor %}
+                            </div>
+                            {% else %}
+                              {{ form.startPos( id="startPos", readonly=true )}}
+                          {% endif%}
+                          {{ form.startLat(readonly=true) }}
+                          {{ form.startLng(readonly=true) }}
+
+                            <!-- <label for="departure">departure</label>
+                            <input id="departure" type="text"> dovra' essere non immettibile -->
                         </div>
     
                         <div class="input-ridebox-give">
-                            <label for="seat">seat available</label>
-                            <input id="seat" type="text" required> 
+                          {{ form.seats.label( class="form-label" )}}
+                          {% if form.seats.errors %}
+                            {{ form.seats( placeholder="seats number")}}
+                            <div class="invalid-feedback">
+                              {% for error in form.seats.errors %}
+                                <span>{{ error }}</span>
+                              {% endfor %}
+                            </div>
+                            {% else %}
+                              {{ form.seats( placeholder="seats number", id="seats")}}
+                          {% endif%}
+                            <!-- <label for="seat">seat available</label>
+                            <input id="seat" type="text" required>  -->
                         </div>
                     </div>
+                    {% if message is not none %}
+                        <div class="alert alert-success" role="alert">
+                        {{message}}
+                        </div>
+                    {% endif %}
+                    {% if error is not none %}
+                        <div class="alert alert-danger" role="alert">
+                        {{error}}
+                        </div>
+                    {% endif %}
                     <div class="sendmodule-btn-give">
-                        <button><a href="#"></a>give ride</button>
+                        {{ form.submit()}}
+                        <!-- <button><a href="#"></a>give ride</button> -->
                     </div>
                 </form>
             </div>
@@ -77,6 +115,8 @@
     </section>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script type="text/javascript" src="{{ url_for('static', filename='js/autosuggestion_geocoding.js') }}"></script>
+    <script type="text/javascript" src="{{ url_for('static', filename='js/tracking/active_geolocalization.js') }}"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>  
   </body>
 </html>

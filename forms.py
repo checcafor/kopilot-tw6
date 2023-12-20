@@ -110,7 +110,7 @@ class InfoForm(FlaskForm):
 # --------------------- GIVE FORM ---------------------
 class GiveForm(FlaskForm):
     # required starting address field with validator of length and allowed characters
-    startPos = StringField('Stai Partendo da...', validators=[
+    startPos = StringField('departure', validators=[
         DataRequired(),
         Length(min=2, max=60)
     ])
@@ -120,19 +120,19 @@ class GiveForm(FlaskForm):
     startLng = HiddenField('Longitudine')
 
    # required seats field with validator for length and numeric format
-    seats = IntegerField('Numero di Posti', validators=[
+    seats = IntegerField('seat available', validators=[
         DataRequired(),
         NumberRange(min=0, max=9, message="Il numero di posti per un'autovettura arriva fino a 9."),
     ])
 
     # submit type field to send the form and validate it
-    submit = SubmitField('Pubblica viaggio')
+    submit = SubmitField('give ride')
 # ----------------------------------------------------------------
 
 # --------------------- TAKE FORM ---------------------
 class TakeForm(FlaskForm):
     # required starting address field with validator of length and allowed characters
-    startPos = StringField('Stai Partendo da...', validators=[
+    startPos = StringField('departure', validators=[
         DataRequired(),
         Length(min=2, max=60),
         Regexp(r'^[a-zA-Z0-9\s\-,]+$', message="Inserisci un indirizzo valido per Google Maps.")
@@ -143,7 +143,7 @@ class TakeForm(FlaskForm):
     startLng = HiddenField('Longitudine')
 
     # required destination address field with validator of length and allowed characters
-    endPos = StringField('Vuoi arrivare a...', validators=[
+    endPos = StringField('destination', validators=[
         DataRequired(),
         Length(min=2, max=60),
         Regexp(r'^[a-zA-Z0-9\s\-,]+$', message="Inserisci un indirizzo valido per Google Maps.")
@@ -154,5 +154,5 @@ class TakeForm(FlaskForm):
     endLng = HiddenField('Longitudine')
 
     # submit type field to send the form and validate it
-    submit = SubmitField('Richiedi passaggio')
+    submit = SubmitField('request ride')
 # ----------------------------------------------------------------

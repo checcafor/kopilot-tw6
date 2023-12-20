@@ -178,7 +178,7 @@
     font-size: 1.3rem;
 }
 
-.sendmodule-btn-take button {
+.sendmodule-btn-take input {
     width: 100%;
     margin-top: 2.5rem;
     border: none;
@@ -187,18 +187,23 @@
     border-radius: 5px;
 }
 
-.sendmodule-btn-take button {
+.sendmodule-btn-take input {
     background-color: #6f79ff;
 }
 
-.sendmodule-btn-take button:hover {
+.sendmodule-btn-take input:hover {
     background-color: #3A9FFF;
 }
 
-.sendmodule-btn-take button a {
+.sendmodule-btn-take input a {
     text-decoration: none;
     font-size: 0.93rem;
     font-weight: 500;
+}
+
+.card-btn button {
+    background-color: transparent;
+    border: none;
 }
 
 @media screen and (max-width: 1300px) {

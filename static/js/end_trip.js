@@ -8,7 +8,7 @@ function endTrip(idEnd) {
             data: { idEnd: idEnd },     // request data
             success: function(response) {
                 // if the request was successful, the user interface is updated in the block of the corresponding trip
-                var cardElement = $("#viaggio_" + idEnd); // Find the travel card block
+                var cardElement = $("#viaggio_" + idEnd); // find the travel card block
                 var badgeElement = cardElement.find('.badge.text-bg-warning'); // find the element with the correct class
 
                 // verifica se l'elemento è stato trovato

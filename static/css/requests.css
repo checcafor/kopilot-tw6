@@ -216,6 +216,11 @@
     .input-ridebox-take input {
         width: 100%;
     }
+
+    .img-placeholder img {
+        width: 25rem;
+        padding-top: 30px;
+    }
 }
 
 /* @media screen and (max-width: 450px) {

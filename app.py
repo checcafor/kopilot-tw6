@@ -189,7 +189,7 @@ def delete_ride_route(ride_id):
 # ----------------------------------------------------------------
 
 # ---------------- REQUEST RIDE DECORATOR ------------------------
-@app.route("/request_ride/", methods=["POST"]) # if this path is specified in the URL by POST method
+@app.route("/request_ride", methods=["POST"]) # if this path is specified in the URL by POST method
 def request_ride_route():
      # if a cookie called "auth" exists and is set to "true" then it means that the user is logged in
     is_user_authenticated = request.cookies.get('auth') == 'true'
@@ -456,7 +456,7 @@ def accept_request(req_id):
     
     accept_request_byID(req_id)     # call the function to accept the ride request
 
-    return render_template("notifications.html")    # the notifications page is rendered
+    return render_template("requests.html")    # the notifications page is rendered
 # ----------------------------------------------------------------
 
 # ------------------ REJECT REQUEST DECORATOR --------------------
@@ -470,7 +470,7 @@ def reject_request(req_id):
     
     reject_request_byID(req_id)     # calls the function to reject the ride request
 
-    return render_template("notifications.html")    # the notifications page is rendered
+    return render_template("requests.html")    # the notifications page is rendered
 # ----------------------------------------------------------------
 
 # ---------------------- LOGOUT DECORATOR ------------------------

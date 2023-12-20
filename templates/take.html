@@ -9,9 +9,10 @@
     <link rel="stylesheet" href="static/css/style.css">
     <link rel="stylesheet" href="static/css/take.css">
     <link href="https://cdn.jsdelivr.net/npm/remixicon@3.6.0/fonts/remixicon.css" rel="stylesheet">
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBoLENlbl6kET98KZt7Mxsx7txVQP6_72I&libraries=places" defer></script>
   </head>
       
-  <body>
+  <body onload="init_tracking();">
     <header class="header">
         <div class="container header__container">
           <div class="header__logo"><img class="header__img" src="https://image.ibb.co/kcVou6/path3000.png">
@@ -48,84 +49,45 @@
     <section id="ridecont">
         <div class="container-ride">
             <div class="form-image-take">
-                <!-- <img src="static/img/take.svg" alt=""> DA MOSTRARE POI DINAMICAMENTE QUANDO SI INTEGRA-->
-
+              {% if available_trips %}
                 <div class="col-xl-12 left-half">
-                  <div class="response-card">
-                    <div class="timeline-content">
-                      <ul>
-                        <li>
-                          <span> Partenza:</span>
-                          <h3>Indirizzo di partenza del driver</h3>
-                        </li>
-                        <li>
-                          <span> Posti rimanenti:</span>
-                          <h3>69</h3>
-                        </li>
-                      </ul>
+                  {% for trip in available_trips %}
+                    <div class="response-card" id="viaggio_{{ trip.idViaggio }}">
+                      <form role="form" autocomplete="off" action="/request_ride" method="POST" novalidate>
+                        <div class="timeline-content">
+                          <ul>
+                            <li>
+                              <span> Partenza:</span>
+                              <h3>{{ trip.indirizzoPartenza }}</h3>
+                            </li>
+                            <li>
+                              <span> Posti rimanenti:</span>
+                              <h3>{{ trip.postiDisponibili }}</h3>
+                            </li>
+                          </ul>
+                        </div>
+                        <!-- da nascondere -->
+                        <input type="hidden" id="destPos" name="startPos" class="form-control" readonly required value="{{ request_info['starting_address'] }}">
+                        <input type="hidden" id="destPos" name="destPos" class="form-control" readonly required value="{{ request_info['destination_address'] }}">
+                        <input type="hidden" id="destLat" name="destLat" class="form-control" readonly required value="{{ request_info['lat'] }}">
+                        <input type="hidden" id="destLon" name="destLon" class="form-control" readonly required value="{{ request_info['lon'] }}">
+                        <input type="hidden" name="ride" value="{{ trip.idViaggio }}">
+                        <div class="card-btn">
+                          <button type="submit">
+                            <a class="btn btn--violet btn--width">Ride now</a>
+                          </button>
+                        </div>
+                      </form>
                     </div>
-                    <div class="card-btn">
-                      <a href="/give" class="btn btn--violet btn--width">Ride now</a>
-                    </div>
-                  </div>
-
-                  <div class="response-card">
-                    <div class="timeline-content">
-                      <ul>
-                        <li>
-                          <span> Partenza:</span>
-                          <h3>Indirizzo di partenza del driver</h3>
-                        </li>
-                        <li>
-                          <span> Posti rimanenti:</span>
-                          <h3>69</h3>
-                        </li>
-                      </ul>
-                    </div>
-                    <div class="card-btn">
-                      <a href="/give" class="btn btn--violet btn--width">Ride now</a>
-                    </div>
-                  </div>
-
-                  <div class="response-card">
-                    <div class="timeline-content">
-                      <ul>
-                        <li>
-                          <span> Partenza:</span>
-                          <h3>Indirizzo di partenza del driver</h3>
-                        </li>
-                        <li>
-                          <span> Posti rimanenti:</span>
-                          <h3>69</h3>
-                        </li>
-                      </ul>
-                    </div>
-                    <div class="card-btn">
-                      <a href="/give" class="btn btn--violet btn--width">Ride now</a>
-                    </div>
-                  </div>
-
-                  <div class="response-card">
-                    <div class="timeline-content">
-                      <ul>
-                        <li>
-                          <span> Partenza:</span>
-                          <h3>Indirizzo di partenza del driver</h3>
-                        </li>
-                        <li>
-                          <span> Posti rimanenti:</span>
-                          <h3>69</h3>
-                        </li>
-                      </ul>
-                    </div>
-                    <div class="card-btn">
-                      <a href="/give" class="btn btn--violet btn--width">Ride now</a>
-                    </div>
-                  </div>
+                  {% endfor %}
                 </div>
+              {% else %}
+                <img src="static/img/take.svg" alt="take_placeholder">
+              {% endif %}
             </div>
             <div class="form-ride">
-                <form action="#" class="form">
+                <form autocomplete="off" action="/take" method="post" novalidate class="form">
+                    {{ form.hidden_tag()}}
                     <div class="ride-header-take">
                         <div class="ride-title">
                             <h1>TAKE</h1>
@@ -133,17 +95,54 @@
                     </div>
                     <div class="input-group">
                         <div class="input-ridebox-take">
-                            <label for="departure">departure</label>
-                            <input id="departure" type="text"> <!-- dovra' essere non immettibile -->
+                            {{ form.startPos.label()}}
+                            {% if form.startPos.errors %}
+                              {{ form.startPos( )}}
+                              <div class="invalid-feedback">
+                                {% for error in form.startPos.errors %}
+                                  <span>{{ error }}</span>
+                                {% endfor %}
+                              </div>
+                              {% else %}
+                                {{ form.startPos( id="startPos", readonly=true )}}
+                            {% endif%}
+                            {{ form.startLat(readonly=true) }}
+                            {{ form.startLng(readonly=true) }}
+                            <!-- <label for="departure">departure</label>
+                            <input id="departure" type="text"> dovra' essere non immettibile -->
                         </div>
     
                         <div class="input-ridebox-take">
-                            <label for="destination">destination</label>
-                            <input id="destination" type="text" required> 
+                          {{ form.endPos.label( )}}
+                          {% if form.endPos.errors %}
+                            {{ form.endPos( placeholder="destination address", id="endPos")}}
+                            <div class="invalid-feedback">
+                              {% for error in form.endPos.errors %}
+                                <span>{{ error }}</span>
+                              {% endfor %}
+                            </div>
+                            {% else %}
+                              {{ form.endPos( placeholder="destination address", id="endPos")}}
+                          {% endif%}
+                          {{ form.endLat(readonly=true) }}
+                          {{ form.endLng(readonly=true) }}
+                            <!-- <label for="destination">destination</label>
+                            <input id="destination" type="text" required>  -->
                         </div>
                     </div>
+                    {% if error is not none %}
+                        <div class="alert alert-danger" role="alert">
+                        {{error}}
+                        </div>
+                    {% endif %}
+                    {% if message is not none %}
+                        <div class="alert alert-success" role="alert">
+                        {{message}}
+                        </div>
+                    {% endif %}
                     <div class="sendmodule-btn-take">
-                        <button><a href="#"></a>request ride</button>
+                      {{ form.submit()}}
+                        <!-- <button><a href="#"></a>request ride</button> -->
                     </div>
                 </form>
             </div>
@@ -151,6 +150,8 @@
     </section>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script type="text/javascript" src="{{ url_for('static', filename='js/autosuggestion_geocoding.js') }}"></script>
+    <script type="text/javascript" src="{{ url_for('static', filename='js/tracking/active_geolocalization.js') }}"></script>  
     <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>  
   </body>
 </html>
