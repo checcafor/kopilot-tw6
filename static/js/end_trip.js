@@ -21,6 +21,9 @@ function endTrip(idEnd) {
                 }
                 // this function is invoked to check that the entire interface is updated correctly
                 controllaStatoViaggio(idEnd);
+
+                createToast('success', 'Viaggio concluso con successo');
+
             },
             error: function(error) {    // in case of an error during the request
                 // an alert containing the error is displayed and displayed in the console

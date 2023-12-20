@@ -8,7 +8,9 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
     <link rel="stylesheet" href="static/css/style.css">
     <link rel="stylesheet" href="static/css/profile.css">
+    <link rel="stylesheet" href="static/css/popup.css">
     <link href="https://cdn.jsdelivr.net/npm/remixicon@3.6.0/fonts/remixicon.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
   </head>
       
   <body>
@@ -48,6 +50,8 @@
           </div>
         </div>
       </header>
+
+    <ul class="notifications"></ul>
 
     <div class="container-profile">
         <div class="forms-container-profile">
@@ -120,15 +124,26 @@
                             {{ form.password( placeholder="password" ) }}
                         {% endif%}
                     </div>
+                    {% if message is not none %}
+                      <script>
+                            document.addEventListener('DOMContentLoaded', function() {
+                            createToast('success', '{{message}}');
+                        });
+                      </script>
+                    {% endif %}
                     {% if error is not none %}
-                      <div class="alert alert-danger" role="alert">
-                          {{error}}
-                      </div>
-                      {% endif %}
-                      {% if message is not none %}
-                      <div class="alert alert-success" role="alert">
-                          {{message}}
-                      </div>
+                      <script>
+                            document.addEventListener('DOMContentLoaded', function() {
+                            createToast('error', '{{error}}'); 
+                        });
+                      </script>
+                    {% endif %}
+                    {% if info_error is not none %}
+                      <script>
+                            document.addEventListener('DOMContentLoaded', function() {
+                            createToast('info', '{{info_error}}'); 
+                        });
+                      </script>
                     {% endif %}
                     <button id="submit" type="submit" name="submit" class="btn-log-s solid">
                         <i class="ri-edit-line"></i>
@@ -143,5 +158,6 @@
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>  
+    <script type="text/javascript" src="{{ url_for('static', filename='js/popup.js') }}"></script>
   </body>
 </html>

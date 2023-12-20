@@ -9,7 +9,11 @@ function acceptRide(idRichiestaPassaggio) {
             success: function(response) {
                 // if the request was successful, the user interface is updated
                 $("#richiesta_" + idRichiestaPassaggio).remove();
-                location.reload();
+                createToast('success', 'Richiesta di passaggio accetta con successo');
+
+                setTimeout(function() {
+                    location.reload();
+                }, 5000); 
             },
             error: function(error) {    // in case of an error during the request
                 // an alert containing the error is displayed and displayed in the console

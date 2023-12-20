@@ -8,8 +8,10 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
     <link rel="stylesheet" href="static/css/style.css">
     <link rel="stylesheet" href="static/css/take.css">
+    <link rel="stylesheet" href="static/css/popup.css">
     <link href="https://cdn.jsdelivr.net/npm/remixicon@3.6.0/fonts/remixicon.css" rel="stylesheet">
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBoLENlbl6kET98KZt7Mxsx7txVQP6_72I&libraries=places" defer></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
   </head>
       
   <body onload="init_tracking();">
@@ -49,6 +51,8 @@
           </div>
         </div>
     </header> 
+
+    <ul class="notifications"></ul>
 
     <section id="ridecont">
         <div class="container-ride">
@@ -134,16 +138,20 @@
                             <input id="destination" type="text" required>  -->
                         </div>
                     </div>
-                    {% if error is not none %}
-                        <div class="alert alert-danger" role="alert">
-                        {{error}}
-                        </div>
-                    {% endif %}
                     {% if message is not none %}
-                        <div class="alert alert-success" role="alert">
-                        {{message}}
-                        </div>
-                    {% endif %}
+                    <script>
+                          document.addEventListener('DOMContentLoaded', function() {
+                          createToast('success', '{{message}}');
+                      });
+                    </script>
+                  {% endif %}
+                  {% if error is not none %}
+                    <script>
+                          document.addEventListener('DOMContentLoaded', function() {
+                          createToast('error', '{{error}}'); 
+                      });
+                    </script>
+                  {% endif %}
                     <div class="sendmodule-btn-take">
                       {{ form.submit()}}
                         <!-- <button><a href="#"></a>request ride</button> -->
@@ -157,5 +165,6 @@
     <script type="text/javascript" src="{{ url_for('static', filename='js/autosuggestion_geocoding.js') }}"></script>
     <script type="text/javascript" src="{{ url_for('static', filename='js/tracking/active_geolocalization.js') }}"></script>  
     <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>  
+    <script type="text/javascript" src="{{ url_for('static', filename='js/popup.js') }}"></script>
   </body>
 </html>

@@ -403,7 +403,7 @@ def profile():
                 if user:    # if the user has not changed any parameters
                     connection.close()  # the database connection is closed
                     # the same page is returned, encouraging you, if necessary, to change the parameters to make a change
-                    return render_template("profile.html", user_info = user_info, message = None, error = "Modifica qualche campo per rendere effettiva la modifica", form = form, notificationsNumber = notificationsNumber)
+                    return render_template("profile.html", user_info = user_info, message = None, info_error = "Modifica qualche campo per rendere effettiva la modifica", form = form, notificationsNumber = notificationsNumber, error = None)
                 else:   # if the user has changed at least one parameter
                     try:
                         # we then proceed to update the user information
@@ -417,24 +417,24 @@ def profile():
                     finally:
                         connection.close()              # the database connection is closed
                     # the same page is returned showing a message that the user information has been modified
-                    return render_template("profile.html", user_info = user_info, message = "Aggiornamento delle credenziali avventuo con successo", error = None, form = form, notificationsNumber = notificationsNumber)   
+                    return render_template("profile.html", user_info = user_info, message = "Aggiornamento delle credenziali avventuo con successo", error = None, form = form, notificationsNumber = notificationsNumber, info_error = None)   
             else:
                 # if there is at least one user with this phone number
                 connection.close()  # the database connection is closed
                 # the same page is returned showing an error message
-                return render_template("profile.html", user_info = user_info, message = None, error = "Attenzione, questo numero di telefono è già stato utilizziato", form = form, notificationsNumber = notificationsNumber)
+                return render_template("profile.html", user_info = user_info, message = None, error = "Attenzione, questo numero di telefono è già stato utilizziato", form = form, notificationsNumber = notificationsNumber, info_error = None)
             
         else:
             # if there is at least one user with this email
             connection.close()  # the database connection is closed
             # the same page is returned showing an error message
-            return render_template("profile.html", user_info = user_info, message = None, error = "Attenzione, questa mail è già stata utilizziata", form = form, notificationsNumber = notificationsNumber)
+            return render_template("profile.html", user_info = user_info, message = None, error = "Attenzione, questa mail è già stata utilizziata", form = form, notificationsNumber = notificationsNumber, info_error = None)
     
     else:
         # if the request method is "GET", then the user is simply accessing the page
         connection.close() # the database connection is closed, since we have already obtained the user information previously
         # the page is simply returned
-        return render_template("profile.html", user_info = user_info, message = None, error = None, form = form, notificationsNumber = notificationsNumber)
+        return render_template("profile.html", user_info = user_info, message = None, error = None, form = form, notificationsNumber = notificationsNumber, info_error = None)
 # ----------------------------------------------------------------
 
 # -------------------- NOTIFICATION DECORATOR --------------------

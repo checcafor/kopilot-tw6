@@ -9,7 +9,9 @@
     <link rel="stylesheet" href="static/css/style.css">
     <link rel="stylesheet" href="static/css/history.css">
     <link rel="stylesheet" href="static/css/tabs.css">
+    <link rel="stylesheet" href="static/css/popup.css">
     <link href="https://cdn.jsdelivr.net/npm/remixicon@3.6.0/fonts/remixicon.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
   </head>
       
   <body>
@@ -49,6 +51,8 @@
           </div>
         </div>
     </header> 
+
+    <ul class="notifications"></ul>
 
     <section id="content">
         <div class="container-cards"> 
@@ -188,5 +192,6 @@
     <script type="text/javascript" src="{{ url_for('static', filename='js/end_trip.js') }}"></script>
     <script type="text/javascript" src="{{ url_for('static', filename='js/controlli_TripRide.js') }}"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>  
+    <script type="text/javascript" src="{{ url_for('static', filename='js/popup.js') }}"></script>
   </body>
 </html>

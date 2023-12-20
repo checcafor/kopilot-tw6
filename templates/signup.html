@@ -8,7 +8,9 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
     <link rel="stylesheet" href="static/css/style.css">
     <link rel="stylesheet" href="static/css/login.css">
+    <link rel="stylesheet" href="static/css/popup.css">
     <link href="https://cdn.jsdelivr.net/npm/remixicon@3.6.0/fonts/remixicon.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
   </head>
       
   <body>
@@ -42,6 +44,8 @@
       </div>
     </header>
 
+    <ul class="notifications"></ul>
+    
     <div class="container-signup">
         <div class="forms-container-signup">
             <div class="account">
@@ -104,6 +108,7 @@
                       <i class="ri-lock-password-fill"></i>
                       {% if form.password.errors %}
                         {{ form.password( placeholder="password" )}}
+                        
                         <div class="invalid-input">
                           {% for error in form.password.errors %}
                             <span>{{ error }}</span>
@@ -114,14 +119,12 @@
                       {% endif%}
                     </div>
                     {% if message is not none %}
-                      <div class="alert alert-danger" role="alert">
-                        <!--
-                        <script>
-                          alert("{{message}}");
-                        </script>
-                        -->
-                        {{message}}
-                      </div>
+                    
+                    <script>
+                          document.addEventListener('DOMContentLoaded', function() {
+                          createToast('error', '{{message}}'); 
+                      });
+                    </script>
                     {% endif %}
                     {{ form.submit( class="btn-log-s solid" )}} 
                 </form>
@@ -150,5 +153,8 @@
           window.location.href = '/login';
       });
     </script>
+
+    <script type="text/javascript" src="{{ url_for('static', filename='js/popup.js') }}"></script>
+
   </body>
 </html>
