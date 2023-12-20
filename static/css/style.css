@@ -73,6 +73,11 @@ body{
   color: var(--text-color);
 }
 
+.badge{
+  float: right;
+  margin-top: 3px;
+}
+
 .card-box{
   padding: 0px 25px;  
 }
@@ -691,6 +696,10 @@ body{
 
   .form-group {
     margin-bottom: 10px;
+  }
+
+  .badge {
+    margin-top: 0px;
   }
 }
 
