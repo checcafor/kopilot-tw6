@@ -10,7 +10,7 @@ function rejectRide(idRichiestaPassaggio) {
                 // if the request was successful, the user interface is updated
                 $("#richiesta_" + idRichiestaPassaggio).remove();
                 
-                createToast('success', 'Richiesta rifiutata con successo');
+                createToast('success', 'Trip request rejected with success');
 
                 setTimeout(function() {
                     location.reload();

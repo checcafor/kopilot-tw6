@@ -9,7 +9,7 @@ function deleteTrip(idViaggio) {
         success: function(response) {
           // if the request was successful, the user interface is updated
           $("#viaggio_" + idViaggio).remove();
-          createToast('success', 'Viaggio eliminato con successo');
+          createToast('success', 'Trip deleted successfully');
 
           setTimeout(function() {
               location.reload();

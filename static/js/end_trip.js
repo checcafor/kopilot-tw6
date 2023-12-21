@@ -22,7 +22,7 @@ function endTrip(idEnd) {
                 // this function is invoked to check that the entire interface is updated correctly
                 controllaStatoViaggio(idEnd);
 
-                createToast('success', 'Viaggio concluso con successo');
+                createToast('success', 'Trip ended successfully');
 
             },
             error: function(error) {    // in case of an error during the request

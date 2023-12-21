@@ -9,7 +9,7 @@ function acceptRide(idRichiestaPassaggio) {
             success: function(response) {
                 // if the request was successful, the user interface is updated
                 $("#richiesta_" + idRichiestaPassaggio).remove();
-                createToast('success', 'Richiesta di passaggio accetta con successo');
+                createToast('success', 'Trip request acceppted with success');
 
                 setTimeout(function() {
                     location.reload();

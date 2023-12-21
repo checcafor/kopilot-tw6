@@ -42,7 +42,6 @@ function controllaStatoPassaggio(rideId) {
 
     // if the item is present and the status is 'Accettato'
     if (elementoStato && elementoStato.innerText.trim() === 'Accettato') {
-        // nasconde il pulsante specifico per questo ride, se trovato
         // console.log("Il passaggio NON può essere eliminato");
 
         // retrieve the item by id

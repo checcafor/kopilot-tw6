@@ -27,6 +27,7 @@
   border-radius: 4px;
   padding: 16px 17px;
   margin-bottom: 10px;
+  box-shadow: 6px 6px 18px 7px rgba(0, 0, 0,0.2);
   background: var(--light);
   justify-content: space-between;
   animation: show_toast 0.3s ease forwards;

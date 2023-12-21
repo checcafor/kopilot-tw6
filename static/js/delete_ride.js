@@ -10,7 +10,7 @@ function cancelRide(idViaggio) {
                 // if the request was successful, the user interface is updated
                 controllaStatoPassaggio(idViaggio);
                 $("#ride_" + idViaggio).remove();
-                createToast('success', 'Richiesta di passaggio eliminata con successo');
+                createToast('success', 'Ride request deleted successfully');
 
                 setTimeout(function() {
                     location.reload();
