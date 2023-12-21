@@ -1,6 +1,6 @@
 // asynchronous call to remove the switch request
 function cancelRide(idViaggio) {
-    if (confirm("Sei sicuro di voler cancellare questa richiesta di passaggio?")) {
+    if (confirm("Are you sure you want to cancel this ride request?")) {
         // make the AJAX call to cancel the pass request
         $.ajax({
             url: "/delete_ride/" + idViaggio,   // url to which to make the request

@@ -24,7 +24,7 @@ CREATE TABLE IF NOT EXISTS Viaggi (
     lon_Partenza REAL NOT NULL,
     time_stamp DATETIME NOT NULL,
     postiDisponibili INTEGER NOT NULL,
-    Stato TEXT DEFAULT 'In Corso...', -- può essere Concluso
+    Stato TEXT DEFAULT 'In progress...', -- can be Finished
     
     FOREIGN KEY (_idUtente) REFERENCES Utenti(idUtente)
 );
@@ -38,7 +38,7 @@ CREATE TABLE IF NOT EXISTS RichiestePassaggio (
     indirizzoArrivo TEXT NOT NULL,
     lat_Arrivo REAL NOT NULL,
     lon_Arrivo REAL NOT NULL,
-    Stato TEXT DEFAULT 'In Attesa', -- può essere Accettato / Rifiutato
+    Stato TEXT DEFAULT 'Pending...', -- può essere Accepted / Rejected
     FOREIGN KEY (_idUtente) REFERENCES Utenti(idUtente),
     FOREIGN KEY (_idViaggio) REFERENCES Viaggi(idViaggio) ON DELETE CASCADE
 );

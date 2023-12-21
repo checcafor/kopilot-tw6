@@ -82,23 +82,23 @@
                           <div class="timeline-content">
                             <ul>
                               <li>
-                                <span> Partenza:</span>
+                                <span> Departure:</span>
                                 <h3>{{ trip.indirizzoPartenza }}</h3>
                               </li>
                               <li>
-                                <span> Data:</span>
+                                <span> Date:</span>
                                 <h3>{{ trip.time_stamp }}</h3>
                               </li>
                               <li>
-                                <span> Posti disponibili:</span>
+                                <span> Available seats:</span>
                                 <h3>{{ trip.postiDisponibili }}</h3>
                               </li>
                             </ul>
                           </div>
                           <div class="left-places">
-                            {% if trip.Stato == 'Concluso' %}
+                            {% if trip.Stato == 'Finished' %}
                               <b>Stato:</b> <span class="badge text-bg-success">{{ trip.Stato }}</span>
-                            {% elif trip.Stato == 'In Corso...' %}
+                            {% elif trip.Stato == 'In progress...' %}
                               <b>Stato:</b> <span class="badge text-bg-warning">{{ trip.Stato }}</span>
                             {% else %}
                               <b>Stato:</b> <span class="badge text-bg-danger">{{ trip.Stato }}</span>
@@ -132,22 +132,22 @@
                           <div class="timeline-content">
                             <ul>
                               <li>
-                                  <span> Partenza:</span>
-                                  <h3>{{ ride.indirizzoPartenza }}</h3>
+                                  <span> Departure:</span>
+                                  <h3>{{ ride.indirizzoPartenzaRider }}</h3>
                               </li>
                               <li>
-                                  <span> Arrivo:</span>
+                                  <span> Destination:</span>
                                   <h3>{{ ride.indirizzoArrivo }}</h3>
                               </li>
                             </ul>
                           </div>
                           <div class="left-places">
-                            {% if ride.Stato == 'In Attesa' %}
-                              <b>Stato:</b> <span class="badge text-bg-warning">{{ ride.Stato }}</span>
-                            {% elif ride.Stato == 'Accettato' %}
-                              <b>Stato:</b> <span class="badge text-bg-success">{{ ride.Stato }}</span>
+                            {% if ride.Stato == 'Pending...' %}
+                              <b>Status:</b> <span class="badge text-bg-warning">{{ ride.Stato }}</span>
+                            {% elif ride.Stato == 'Accepted' %}
+                              <b>Status:</b> <span class="badge text-bg-success">{{ ride.Stato }}</span>
                             {% else %}
-                              <b>Stato:</b> <span class="badge text-bg-danger">{{ ride.Stato }}</span>
+                              <b>Status:</b> <span class="badge text-bg-danger">{{ ride.Stato }}</span>
                             {% endif %}
                           </div>
                           <div class="card-btn">
