@@ -72,7 +72,7 @@
                           {{ form.startPos.label()}}
                           {% if form.startPos.errors %}
                             {{ form.startPos( class="form-control is-invalid" )}}
-                            <div class="invalid-feedback">
+                            <div class="invalid-input ">
                               {% for error in form.startPos.errors %}
                                 <span>{{ error }}</span>
                               {% endfor %}
@@ -91,7 +91,7 @@
                           {{ form.seats.label( class="form-label" )}}
                           {% if form.seats.errors %}
                             {{ form.seats( placeholder="seats number")}}
-                            <div class="invalid-feedback">
+                            <div class="invalid-input ">
                               {% for error in form.seats.errors %}
                                 <span>{{ error }}</span>
                               {% endfor %}

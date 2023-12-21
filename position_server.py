@@ -4,7 +4,7 @@ from datetime import datetime					# import the 'datetime' class from the 'dateti
 from function import connect					# import the 'connect' function from the 'function' module
 
 WS_PORT = 9001		# setting WebSocket port for communication
-HTTP_PORT = 5000	# setting the HTTP port for the flask web server
+HTTP_PORT = 5001	# setting the HTTP port for the flask web server
 HOST = "0.0.0.0"	# setting the HOST address to bind the server to: "0.0.0.0", that means the server will listen on all available network interfaces.
 
 # function called for every client connecting (after handshake)

@@ -547,6 +547,20 @@ body{
     font-size: 2.3rem;
 }
 
+.invalid-input {
+  display: flex;
+  flex-direction: column; 
+  align-items: flex-start; 
+  padding-left: 2rem; 
+}
+
+.invalid-input span {
+  display: flex;
+  position: fixed;
+  color: red;
+  font-size: 1.2rem;
+}
+
 @media screen and (max-width:1024px){
   .collapse{
     display: none;
