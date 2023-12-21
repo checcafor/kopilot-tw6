@@ -8,34 +8,34 @@ class SingupForm(FlaskForm):
     name = StringField('Name', validators=[
         DataRequired(),
         Length(min=2, max=20),
-        Regexp(r'^[a-zA-ZÀ-ÿ\s\'-]+$', message="Il nome deve contenere solo lettere e spazi.")
+        Regexp(r'^[a-zA-ZÀ-ÿ\s\'-]+$', message="The name must contain only letters and spaces.")
     ])
 
     # required lastname field with validator of length and allowed characters
     lastname = StringField('Lastname', validators=[
         DataRequired(),
         Length(min=2, max=20),
-        Regexp(r'^[a-zA-ZÀ-ÿ\s\'-]+$', message="Il cognome deve contenere solo lettere e spazi.")
+        Regexp(r'^[a-zA-ZÀ-ÿ\s\'-]+$', message="The last name must contain only letters and spaces.")
     ])
 
     # required phone field with validator of length and numeric format
     phone = TelField('Phone', validators=[
         DataRequired(),
-        Length(min=10, max=11, message="Il numero di telefono deve contenere dalle 10 alle 11 cifre."), # DA AGGIUSTARE A 10
-        Regexp(r'^\d*$', message="Inserisci solo numeri nel campo telefono.")
+        Length(min=10, max=11, message="The telephone number must contain 10 to 11 digits."),
+        Regexp(r'^\d*$', message="Enter only numbers in the phone field.")
     ])
 
     # required email field with validator to enforce the email format
     email = StringField('Email', validators=[
         DataRequired(),
-        Email(message="Inserisci un indirizzo email valido.")
+        Email(message="Enter a valid email address.")
     ])
 
     # required password field with length and complexity validator
     password = PasswordField('Password', validators=[
         DataRequired(),
-        Length(min=1, max=20), # DA AGGIUSTARE AD 8
-        # Regexp(r'^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]+$', message="La password deve contenere almeno una lettera minuscola, una lettera maiuscola, un numero e un carattere speciale.")
+        Length(min=1, max=20),
+        # Regexp(r'^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&#])[A-Za-z\d@$!%*?&#]+$', message="The password must contain at least one lowercase letter, one uppercase letter, one number, and one special character.")
     ])
 
     # required boolean field to accept the terms and conditions of the site
@@ -50,14 +50,14 @@ class LoginForm(FlaskForm):
     # required email field with validator to enforce the email format
     email = StringField('Email', validators=[
         DataRequired(),
-        Email(message="Inserisci un indirizzo email valido.")
+        Email(message="Enter a valid email address.")
     ])
 
     # required password field with length and complexity validator
     password = PasswordField('Password', validators=[
         DataRequired(),
         Length(min=1, max=20), # DA AGGIUSTARE AD 8
-        # Regexp(r'^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]+$', message="La password deve contenere almeno una lettera minuscola, una lettera maiuscola, un numero e un carattere speciale.")
+        # Regexp(r'^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&#])[A-Za-z\d@$!%*?&#]+$', message="The password must contain at least one lowercase letter, one uppercase letter, one number, and one special character.")
     ])
 
     # campo booleano per far scegliere all'utente se rimanere loggato oppure no
@@ -73,34 +73,34 @@ class InfoForm(FlaskForm):
     name = StringField('Name', validators=[
         DataRequired(),
         Length(min=2, max=20),
-        Regexp(r'^[a-zA-ZÀ-ÿ\s\'-]+$', message="Il nome deve contenere solo lettere e spazi.")
+        Regexp(r'^[a-zA-ZÀ-ÿ\s\'-]+$', message="The name must contain only letters and spaces.")
     ])
 
     # required lastname field with validator of length and allowed characters
     lastname = StringField('Lastname', validators=[
         DataRequired(),
         Length(min=2, max=20),
-        Regexp(r'^[a-zA-ZÀ-ÿ\s\'-]+$', message="Il cognome deve contenere solo lettere e spazi.")
+        Regexp(r'^[a-zA-ZÀ-ÿ\s\'-]+$', message="The last name must contain only letters and spaces.")
     ])
 
     # required phone field with validator of length and numeric format
     phone = TelField('Phone', validators=[
         DataRequired(),
-        Length(min=10, max=11, message="Il numero di telefono deve contenere dalle 10 alle 11 cifre."), # DA AGGIUSTARE A 10
-        Regexp(r'^\d*$', message="Inserisci solo numeri nel campo telefono.")
+        Length(min=10, max=11, message="The telephone number must contain 10 to 11 digits."),
+        Regexp(r'^\d*$', message="Enter only numbers in the phone field.")
     ])
 
     # required email field with validator to enforce the email format
     email = StringField('Email', validators=[
         DataRequired(),
-        Email(message="Inserisci un indirizzo email valido.")
+        Email(message="Enter a valid email address.")
     ])
 
     # required password field with length and complexity validator
     password = PasswordField('Password', validators=[
         DataRequired(),
-        Length(min=1, max=20), # DA AGGIUSTARE AD 8
-        # Regexp(r'^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]+$', message="La password deve contenere almeno una lettera minuscola, una lettera maiuscola, un numero e un carattere speciale.")
+        Length(min=1, max=20),
+        # Regexp(r'^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&#])[A-Za-z\d@$!%*?&#]+$', message="The password must contain at least one lowercase letter, one uppercase letter, one number, and one special character.")
     ])
 
     # submit type field to send the form and validate it
@@ -122,7 +122,7 @@ class GiveForm(FlaskForm):
    # required seats field with validator for length and numeric format
     seats = IntegerField('seat available', validators=[
         DataRequired(),
-        NumberRange(min=0, max=9, message="Il numero di posti per un'autovettura arriva fino a 9."),
+        NumberRange(min=0, max=8, message="The number of passenger seats for a passenger car is up to 8."),
     ])
 
     # submit type field to send the form and validate it
@@ -134,8 +134,7 @@ class TakeForm(FlaskForm):
     # required starting address field with validator of length and allowed characters
     startPos = StringField('departure', validators=[
         DataRequired(),
-        Length(min=2, max=60),
-        Regexp(r'^[a-zA-Z0-9\s\-,]+$', message="Inserisci un indirizzo valido per Google Maps.")
+        Length(min=2, max=100)
     ])
 
      # hidden fields for starting latitude and longitude
@@ -145,8 +144,7 @@ class TakeForm(FlaskForm):
     # required destination address field with validator of length and allowed characters
     endPos = StringField('destination', validators=[
         DataRequired(),
-        Length(min=2, max=60),
-        Regexp(r'^[a-zA-Z0-9\s\-,]+$', message="Inserisci un indirizzo valido per Google Maps.")
+        Length(min=2, max=100)
     ])
 
      # hidden fields for destination latitude and longitude
