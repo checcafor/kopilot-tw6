@@ -138,7 +138,7 @@ If you think you cannot meet these requirements, or at least not the recommended
 > Formisano Francesca - [linkedin](https://www.linkedin.com/in/francesca-formisano-056460263/) - francesca.formisano001@studenti.uniparthenope.it <br>
 > Fusco Giuseppe - [linkedin](???) - giuseppe.fusco001@studenti.uniparthenope.it
 > 
-> Project Link: [https://github.com/your_username/repo_name](https://github.com/your_username/repo_name)
+> Project Link: [https://github.com/checcafor/kopilot-tw6.git](https://github.com/checcafor/kopilot-tw6.git)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
