@@ -1,6 +1,6 @@
 // asynchronous call to remove the switch request
 function cancelRide(idViaggio) {
-    if (confirm("Sei sicuro di voler cancellare questa richiesta di passaggio?")) {
+    if (confirm("Are you sure you want to cancel this ride request?")) {
         // make the AJAX call to cancel the pass request
         $.ajax({
             url: "/delete_ride/" + idViaggio,   // url to which to make the request
@@ -10,7 +10,7 @@ function cancelRide(idViaggio) {
                 // if the request was successful, the user interface is updated
                 controllaStatoPassaggio(idViaggio);
                 $("#ride_" + idViaggio).remove();
-                createToast('success', 'Richiesta di passaggio eliminata con successo');
+                createToast('success', 'Ride request deleted successfully');
 
                 setTimeout(function() {
                     location.reload();

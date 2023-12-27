@@ -8,8 +8,8 @@ function controllaStatoViaggio(tripId) {
     // select the element with the class "badge" specific to this trip
     var elementoStato = document.querySelector('#viaggio_' + tripId + ' .badge');
 
-    // if the item is present and the status is 'Concluso'
-    if (elementoStato && elementoStato.innerText.trim() === 'Concluso') {
+    // if the item is present and the status is 'Finished'
+    if (elementoStato && elementoStato.innerText.trim() === 'Finished') {
       // retrieve the item by id
       var elementoPulsante = document.getElementById(pulsanteId);
       if (elementoPulsante) { // if found
@@ -40,9 +40,8 @@ function controllaStatoPassaggio(rideId) {
     //console.log('pulsanteId:', pulsanteId);
     //console.log('elementoStato:', elementoStato);
 
-    // if the item is present and the status is 'Accettato'
-    if (elementoStato && elementoStato.innerText.trim() === 'Accettato') {
-        // nasconde il pulsante specifico per questo ride, se trovato
+    // if the item is present and the status is 'Accepted'
+    if (elementoStato && elementoStato.innerText.trim() === 'Accepted') {
         // console.log("Il passaggio NON può essere eliminato");
 
         // retrieve the item by id

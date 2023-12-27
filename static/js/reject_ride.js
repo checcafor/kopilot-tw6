@@ -1,6 +1,6 @@
 // asynchronous call to reject the pass request
 function rejectRide(idRichiestaPassaggio) {
-    if (confirm("Sei sicuro di voler rifiutare questa richiesta di passaggio?")) {
+    if (confirm("Are you sure you want to decline this ride request?")) {
         // make the AJAX call to reject the pass request
         $.ajax({
             url: "/reject_ride/" + idRichiestaPassaggio,                // url to which to make the request
@@ -10,7 +10,7 @@ function rejectRide(idRichiestaPassaggio) {
                 // if the request was successful, the user interface is updated
                 $("#richiesta_" + idRichiestaPassaggio).remove();
                 
-                createToast('success', 'Richiesta rifiutata con successo');
+                createToast('success', 'Trip request rejected with success');
 
                 setTimeout(function() {
                     location.reload();

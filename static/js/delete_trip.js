@@ -1,6 +1,6 @@
 // asynchronous call to remove the trip
 function deleteTrip(idViaggio) {
-    if (confirm("Sei sicuro di voler cancellare questo viaggio?")) {
+    if (confirm("Are you sure you want to cancel this trip?")) {
       // makes the AJAX call to remove the trip
       $.ajax({
         url: "/delete_trip/" + idViaggio,   // url to which to make the request
@@ -9,7 +9,7 @@ function deleteTrip(idViaggio) {
         success: function(response) {
           // if the request was successful, the user interface is updated
           $("#viaggio_" + idViaggio).remove();
-          createToast('success', 'Viaggio eliminato con successo');
+          createToast('success', 'Trip deleted successfully');
 
           setTimeout(function() {
               location.reload();

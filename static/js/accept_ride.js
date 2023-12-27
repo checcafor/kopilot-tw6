@@ -1,6 +1,6 @@
 // asynchronous call to accept the handover request
 function acceptRide(idRichiestaPassaggio) {
-    if (confirm("Sei sicuro di voler accettare questa richiesta di passaggio?")) {
+    if (confirm("Are you sure you want to accept this ride request?")) {
         // makes the AJAX call to accept the handover request
         $.ajax({
             url: "/accept_ride/" + idRichiestaPassaggio,            // url to which to make the request
@@ -9,7 +9,7 @@ function acceptRide(idRichiestaPassaggio) {
             success: function(response) {
                 // if the request was successful, the user interface is updated
                 $("#richiesta_" + idRichiestaPassaggio).remove();
-                createToast('success', 'Richiesta di passaggio accetta con successo');
+                createToast('success', 'Trip request acceppted with success');
 
                 setTimeout(function() {
                     location.reload();

@@ -1,6 +1,6 @@
 // asynchronous call to end the trip "mark it as finished"
 function endTrip(idEnd) {
-    if (confirm("Sei sicuro di voler terminare questo viaggio?")) {
+    if (confirm("Are you sure you want to end this trip?")) {
         // makes the AJAX call to mark the trip as finished
         $.ajax({
             url: "/end_trip/" + idEnd,  // url to which to make the request
@@ -14,7 +14,7 @@ function endTrip(idEnd) {
                 // verifica se l'elemento è stato trovato
                 if (badgeElement.length > 0) {
                     // change the content and classes of the element
-                    badgeElement.text('Concluso').removeClass('text-bg-warning').addClass('text-bg-success');
+                    badgeElement.text('Finished').removeClass('text-bg-warning').addClass('text-bg-success');
                 } else {
                     // an error is shown in the console
                     console.error('Elemento non trovato');
@@ -22,7 +22,7 @@ function endTrip(idEnd) {
                 // this function is invoked to check that the entire interface is updated correctly
                 controllaStatoViaggio(idEnd);
 
-                createToast('success', 'Viaggio concluso con successo');
+                createToast('success', 'Trip ended successfully');
 
             },
             error: function(error) {    // in case of an error during the request
