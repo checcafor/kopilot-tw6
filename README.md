@@ -2,25 +2,26 @@
 # ProgettoTW6
 <a name="readme-top"></a>
 <!-- PROJECT SHIELDS -->
-[![MIT License][license-shield]][license-url]
+[![Apache][license-shield]][license-url]
 [![GitHub][GitHub.com]][GitHub-url]
 
 <!-- PROJECT LOGO -->
 <br />
 <div align="center">
-  <a href="DA AGGIUNGERE">
-    <img src="img/logo.png" alt="Logo" width="80" height="80">
+  <a href="https://github.com/checcafor/kopilot-tw6">
+    <img src="static/img/readme/logo.png" alt="Logo" width="200" height="80">
   </a>
 
-  <h3 align="center">Ko-pilot</h3>
+  <!-- <h3 align="center">Ko-pilot</h3> -->
+  <br>
 
   <p align="center">
     An awesome way to move green!
     <br />
-    <a href="DA AGGIUNGERE"><strong>Explore the docs »</strong></a>
+    <a href="#explore"><strong>Explore the docs »</strong></a>
     <br>
     <br>
-    <a href="DA AGGIUNGERE">View Online Demo</a>
+    <a href="#">View Online Demo</a>
 
   </p>
 </div>
@@ -28,9 +29,12 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-[![Product Name Screen Shot][product-screenshot]](https://example.com)
+<a name="explore"></a>
+<div align="center" style="margin-top: 30px">
+    <img src="static/img/readme/preview.png" alt="Logo">
+</div>
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+This project was born with the idea of ​​optimizing passages for short stretches. The operation is very simple. Two actors are distinguished: the "driver" (i.e. the person who provides the passage) and the rider (i.e. the person who uses the passage). Only drivers who are within one kilometer of the rider who requests it will be eligible to grant a ride. In this way, people headed, for better or worse, in the same place, will share the same car, reducing the number of cars on the road and significantly reducing CO2 emissions, which as we know, is a big problem nowadays.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -123,7 +127,7 @@ If you think you cannot meet these requirements, or at least not the recommended
 <!-- LICENSE -->
 ## License
 > [!WARNING] 
-> Distributed under the MIT License. See `LICENSE` for more information.
+> Distributed under the Apache `2.0 License`. See <a href="https://github.com/checcafor/kopilot-tw6/blob/main/LICENSE">LICENSE</a> for more information.
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- CONTACT -->
@@ -138,11 +142,8 @@ If you think you cannot meet these requirements, or at least not the recommended
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- MARKDOWN LINKS & IMAGES -->
-<!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
-[license-shield]: https://img.shields.io/github/license/othneildrew/Best-README-Template.svg?style=for-the-badge
-[license-url]: https://github.com/othneildrew/Best-README-Template/blob/master/LICENSE.txt
-
-[product-screenshot]: img/demo.png
+[license-shield]: https://img.shields.io/badge/apache-%23D42029.svg?style=for-the-badge&logo=apache&logoColor=white
+[license-url]: https://github.com/checcafor/kopilot-tw6/blob/main/LICENSE
 
 [Bootstrap.com]: https://img.shields.io/badge/Bootstrap-563D7C?style=for-the-badge&logo=bootstrap&logoColor=white
 [Bootstrap-url]: https://getbootstrap.com
