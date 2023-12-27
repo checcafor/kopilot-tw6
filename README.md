@@ -34,7 +34,8 @@
     <img src="static/img/readme/preview.png" alt="Logo">
 </div>
 
-This project was born with the idea of ​​optimizing passages for short stretches. The operation is very simple. Two actors are distinguished: the "driver" (i.e. the person who provides the passage) and the rider (i.e. the person who uses the passage). Only drivers who are within one kilometer of the rider who requests it will be eligible to grant a ride. In this way, people headed, for better or worse, in the same place, will share the same car, reducing the number of cars on the road and significantly reducing CO2 emissions, which as we know, is a big problem nowadays.
+This project was conceived with the goal of optimizing short-distance transportation. The concept is straightforward: it involves two key roles— the "driver" (i.e. the individual offering the ride) and the "kopilot" (i.e. the person seeking the ride). Eligibility for providing a ride is limited to drivers located within one kilometer of the kopilot making the request.
+By implementing this proximity-based system, individuals heading towards the same destination, whether for better or worse, can share a ride in the same vehicle. This approach not only diminishes the number of cars on the road but also contributes significantly to the reduction of CO2 emissions. Given that carbon emissions pose a considerable contemporary challenge, this initiative plays a crucial role in addressing and mitigating this environmental concern.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
