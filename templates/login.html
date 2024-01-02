@@ -58,9 +58,10 @@
                     {% if form.email.errors %}
                       {{ form.email( placeholder="email" )}}
                       <div class="invalid-input">
-                        {% for error in form.email.errors %}
+                        <!-- {% for error in form.email.errors %}
                           <span>{{ error }}</span>
-                        {% endfor %}
+                        {% endfor %} -->
+                        <span>{{ form.email.errors[0] }}</span>
                       </div>
                       {% else %}
                         {{ form.email( placeholder="email" )}}
@@ -71,9 +72,10 @@
                     {% if form.password.errors %}
                       {{ form.password( placeholder="password" )}} 
                       <div  class="invalid-input">
-                        {% for error in form.password.errors %}
+                        <!-- {% for error in form.password.errors %}
                           <span>{{ error }}</span>
-                        {% endfor %}
+                        {% endfor %} -->
+                        <span>{{ form.password.errors[0] }}</span>
                       </div>
                       {% else %}
                         {{ form.password( placeholder="password" )}}

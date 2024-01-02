@@ -128,7 +128,7 @@ If you think you cannot meet these requirements, or at least not the recommended
 <!-- LICENSE -->
 ## License
 > [!WARNING] 
-> Distributed under the Apache `2.0 License`. See <a href="https://github.com/checcafor/kopilot-tw6/blob/main/LICENSE">LICENSE</a> for more information.
+> Distributed under the `Apache 2.0` License. See <a href="https://github.com/checcafor/kopilot-tw6/blob/main/LICENSE">LICENSE</a> for more information.
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- CONTACT -->

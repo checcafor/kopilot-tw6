@@ -64,10 +64,11 @@
                       <i class="ri-user-fill"></i>
                       {% if form.name.errors %}
                         {{ form.name( placeholder="name" )}}
-                        <div class="invalid-feedback">
-                          {% for error in form.name.errors %}
+                        <div class="invalid-input">
+                          <!-- {% for error in form.name.errors %}
                             <span> {{ error }}</span>
-                          {% endfor %}
+                          {% endfor %} -->
+                          <span> {{ form.name.errors[0] }}</span>
                         </div>
                         {% else %}
                           {{ form.name( placeholder="name", value=user_info['nomeUtente']) }}
@@ -77,10 +78,11 @@
                       <i class="ri-user-fill"></i>
                       {% if form.lastname.errors %}
                         {{ form.lastname( placeholder="last name" )}}
-                        <div class="invalid-feedback">
-                          {% for error in form.lastname.errors %}
+                        <div class="invalid-input">
+                          <!-- {% for error in form.lastname.errors %}
                             <span>{{ error }}</span>
-                          {% endfor %}
+                          {% endfor %} -->
+                          <span>{{ form.lastname.errors[0] }}</span>
                         </div>
                         {% else %}
                           {{ form.lastname( placeholder="last name", value=user_info['cognomeUtente']) }}
@@ -90,10 +92,11 @@
                       <i class="ri-phone-fill"></i>
                       {% if form.phone.errors %}
                         {{ form.phone( placeholder="phone number" )}}
-                        <div class="invalid-feedback">
-                          {% for error in form.phone.errors %}
+                        <div class="invalid-input">
+                          <!-- {% for error in form.phone.errors %}
                             <span>{{ error }}</span>
-                          {% endfor %}
+                          {% endfor %} -->
+                          <span>{{ form.phone.errors[0] }}</span>
                         </div>
                         {% else %}
                           {{ form.phone( placeholder="phone number", value=user_info['telefonoUtente']) }}
@@ -103,10 +106,11 @@
                         <i class="ri-mail-check-fill"></i>
                         {% if form.email.errors %}
                           {{ form.email( placeholder="email" )}}
-                          <div class="invalid-feedback">
-                            {% for error in form.email.errors %}
+                          <div class="invalid-input">
+                            <!-- {% for error in form.email.errors %}
                               <span>{{ error }}</span>
-                            {% endfor %}
+                            {% endfor %} -->
+                            <span>{{ form.email.errors[0] }}</span>
                           </div>
                           {% else %}
                             {{ form.email( placeholder="email", value=user_info['emailUtente']) }}
@@ -116,10 +120,11 @@
                         <i class="ri-lock-password-fill"></i>
                         {% if form.password.errors %}
                           {{ form.password( placeholder="password" )}}
-                          <div class="invalid-feedback">
-                            {% for error in form.password.errors %}
+                          <div class="invalid-input">
+                            <!-- {% for error in form.password.errors %}
                               <span>{{ error }}</span>
-                            {% endfor %}
+                            {% endfor %} -->
+                            <span>{{ form.password.errors[0] }}</span>
                           </div>
                           {% else %}
                             {{ form.password( placeholder="password" ) }}

@@ -34,8 +34,8 @@ class SingupForm(FlaskForm):
     # required password field with length and complexity validator
     password = PasswordField('Password', validators=[
         DataRequired(),
-        Length(min=1, max=20),
-        # Regexp(r'^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&#])[A-Za-z\d@$!%*?&#]+$', message="The password must contain at least one lowercase letter, one uppercase letter, one number, and one special character.")
+        Length(min=8, max=20),
+        Regexp(r'^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&#])[A-Za-z\d@$!%*?&#]+$', message="The password must contain at least one lowercase letter, one uppercase letter, one number, and one special character.")
     ])
 
     # required boolean field to accept the terms and conditions of the site
@@ -56,8 +56,8 @@ class LoginForm(FlaskForm):
     # required password field with length and complexity validator
     password = PasswordField('Password', validators=[
         DataRequired(),
-        Length(min=1, max=20), # DA AGGIUSTARE AD 8
-        # Regexp(r'^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&#])[A-Za-z\d@$!%*?&#]+$', message="The password must contain at least one lowercase letter, one uppercase letter, one number, and one special character.")
+        Length(min=8, max=20),
+        Regexp(r'^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&#])[A-Za-z\d@$!%*?&#]+$', message="The password must contain at least one lowercase letter, one uppercase letter, one number, and one special character.")
     ])
 
     # campo booleano per far scegliere all'utente se rimanere loggato oppure no
@@ -99,8 +99,8 @@ class InfoForm(FlaskForm):
     # required password field with length and complexity validator
     password = PasswordField('Password', validators=[
         DataRequired(),
-        Length(min=1, max=20),
-        # Regexp(r'^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&#])[A-Za-z\d@$!%*?&#]+$', message="The password must contain at least one lowercase letter, one uppercase letter, one number, and one special character.")
+        Length(min=8, max=20),
+        Regexp(r'^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&#])[A-Za-z\d@$!%*?&#]+$', message="The password must contain at least one lowercase letter, one uppercase letter, one number, and one special character.")
     ])
 
     # submit type field to send the form and validate it

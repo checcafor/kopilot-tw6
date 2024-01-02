@@ -556,7 +556,8 @@ body{
 
 .invalid-input span {
   display: flex;
-  position: fixed;
+  /* position: fixed; */
+  width: 350px;
   color: red;
   font-size: 1.2rem;
 }
